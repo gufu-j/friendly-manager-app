@@ -8,6 +8,8 @@ import NavBar from './NavBar';
 
 
 import Home from './Home';
+import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <UserProvider>
         <NavBar/>
           <Routes>
-            <Route exact path="/" element={ <Home/> } />
+            <Route exact path="/login" element={ <Login  /> } />
+              <Route exact path="/signup" element={ <SignUp /> }/>
+                <Route exact path="/" element={ <Home   /> } />
           </Routes>
     </UserProvider>
     </div>
