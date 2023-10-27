@@ -6,10 +6,8 @@ const UserContext = React.createContext();
 function UserProvider({children}){
 
     const [user, setUser] = useState({});
-    
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
 
-    
     useEffect(() => {
       fetch('/me')
       .then(res => res.json())
@@ -25,13 +23,11 @@ function UserProvider({children}){
       })
     }, [])
 
-    
     const login = (user) => {
         setUser(user)
         setLoggedIn(true) //set loggedIn flag
     }
 
-    
     const logout = () => {
         setUser({})
         setLoggedIn(false) //set loggedIn flag

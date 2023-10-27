@@ -4,12 +4,11 @@ import { UserContext } from "./context/user";
 import { useNavigate } from "react-router-dom";
 
 
-function SignUp({}){
+function SignUp({admin}){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [admin, setAdmin] = useState(false)
     const [errors, setErrors] = useState([])
 
     const{signup} = useContext(UserContext)

@@ -42,24 +42,3 @@ order_four = Order.create!(quantity: 16, date: "3/12/2023", note: "n/a", status:
 order_five = Order.create!(quantity: 32, date: "6/26/2023", note: "n/a", status: false, store_id: store_five.id, product_id: product_five.id )
 
 puts("done seeding")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-puts("done loading")
