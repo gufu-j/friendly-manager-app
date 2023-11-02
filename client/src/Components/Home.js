@@ -1,25 +1,22 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/user";
 import Business from "./Business";
-// import Bakery from "./Bakery";
-
-
-
-
+// import Order from "./Order";
 
 function Home(){
 
 
-    const {loggedIn} = useContext(UserContext)
+    const {loggedIn, store, setStore} = useContext(UserContext)
 
 
 
     if(loggedIn){
      return(
         <div>
-           <Business/>
+           <Business store={store} setStore={setStore}/>
         </div>
      );
+     
     } else {
         return (
             <div>

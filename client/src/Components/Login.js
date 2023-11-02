@@ -3,7 +3,7 @@ import { UserContext } from "./context/user";
 import { useNavigate } from "react-router-dom";
 
 
-function Login({}){
+function Login(){
 
     //Login section comes mostly from Prof. Nancy's lecture as reference.
 

@@ -6,8 +6,8 @@ class StoreSerializer < ActiveModel::Serializer
 
   belongs_to :user
 
-  def valid_user
-    object.user.admin
-  end
+  # def valid_user
+  #   object.user.admin
+  # end
 
 end

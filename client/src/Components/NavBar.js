@@ -25,22 +25,22 @@ function NavBar({}){
             <div>
                 <h1>Hello {user.username}</h1>
                 <Link to='/'>
-                    <button className="button-54" role="button">Home</button>
+                    <button  role="button">Home</button>
                 </Link> 
-                <button className="button-54" role="button" onClick={handleLogout}> Logout </button>
+                <button  role="button" onClick={handleLogout}> Logout </button>
             </div>
         )
     }else{
         return (
             <div>
                 <Link to='/login'>
-                    <button className="button-54" role="button" >Login</button>
+                    <button  role="button" >Login</button>
                 </Link>
                 <Link to='/signup'>
-                    <button className="button-54" role="button" >Signup</button>
+                    <button  role="button" >Signup</button>
                 </Link>
                 <Link to='/'>
-                    <button className="button-54" role="button" >home</button>
+                    <button  role="button" >home</button>
                 </Link>
                 <hr/>
             </div>

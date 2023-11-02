@@ -29,16 +29,20 @@ store_four = Store.create!(phone_number: "765-435-675", location: "Westbabylon, 
 store_five = Store.create!(phone_number: "675-435-232", location: "New York City, seven av 112, NY 1001", user_id: e.id)
 
 product_one = Product.create!(name: "wrench")
+product_one_second = Product.create!(name: "hoose")
+product_one_third = Product.create!(name: "cup")
 product_two = Product.create!(name: "swivel")
 product_three = Product.create!(name: "door")
 product_four = Product.create!(name: "screws")                                                                                  
 product_five = Product.create!(name: "heavy duty soap")
 
 
-order_one = Order.create!(quantity: 20, date: "10/25/2023", note: "n/a", status: false, store_id: store_one.id, product_id: product_one.id )
-order_two = Order.create!(quantity: 10, date: "1/23/2023", note: "n/a", status: false, store_id: store_two.id, product_id: product_two.id )
-order_three = Order.create!(quantity: 11, date: "9/22/2023", note: "n/a", status: false, store_id: store_three.id, product_id: product_three.id )
-order_four = Order.create!(quantity: 16, date: "3/12/2023", note: "n/a", status: false,  store_id: store_four.id, product_id: product_four.id )
-order_five = Order.create!(quantity: 32, date: "6/26/2023", note: "n/a", status: false, store_id: store_five.id, product_id: product_five.id )
+order_one = Order.create!(quantity: 20, note: "n/a", status: false, store_id: store_one.id, product_id: product_one.id )
+order_one_second = Order.create!(quantity: 10, note: "4 inch, aircarft nozzle assembled", status: false, store_id: store_one.id, product_id: product_one_second.id )
+order_one_third = Order.create!(quantity: 55, note: "blue moon", status: false, store_id: store_one.id, product_id: product_one_third.id )
+order_two = Order.create!(quantity: 10, note: "n/a", status: false, store_id: store_two.id, product_id: product_two.id )
+order_three = Order.create!(quantity: 11, note: "n/a", status: false, store_id: store_three.id, product_id: product_three.id )
+order_four = Order.create!(quantity: 16, note: "n/a", status: false,  store_id: store_four.id, product_id: product_four.id )
+order_five = Order.create!(quantity: 32, note: "n/a", status: false, store_id: store_five.id, product_id: product_five.id )
 
 puts("done seeding")
