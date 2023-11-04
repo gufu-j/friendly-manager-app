@@ -45,7 +45,7 @@ function UserProvider({children}){
 
     useEffect(() =>{
         if (loggedIn === true) {
-        fetch(`/stores/${user.id}`)
+        fetch(`/stores/${user.store.id}`)
         .then((r) => r.json())
         .then((r) => setStore(r))
         }

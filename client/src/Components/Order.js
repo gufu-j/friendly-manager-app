@@ -7,7 +7,15 @@ function Order(){
     const {store} = useContext(UserContext)
     console.log(store)
 
+    if (store.length === 0){
+        console.log("true")
+    }else{
+        console.log(store)
+    }
+
     return(
+        <div>
+            <h1>Orders</h1>
         <div className="background_two">
             { store.length === 0 ? true : store.orders.map((e) => 
             <OrderCards 
@@ -17,6 +25,7 @@ function Order(){
             quantity ={e.quantity}
             date = {e.created_at}/> ) 
             }
+        </div>
         </div>
     )
 }

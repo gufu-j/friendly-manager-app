@@ -3,8 +3,7 @@ import React from "react";
 
 function OrderCards({quantity, note, product_name, date}){
 
-    const currentDate = new Date(date).toDateString();
-
+    const currentDate = new Date(date).toString();
     
     return(
         <div>

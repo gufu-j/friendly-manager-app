@@ -4,7 +4,7 @@ import { UserContext } from "./context/user";
 
 function NavBar({}){
 
-    const {user, logout, loggedIn} = useContext(UserContext)
+    const {logout, loggedIn} = useContext(UserContext)
     
     const navigate = useNavigate()
 
@@ -23,10 +23,12 @@ function NavBar({}){
     if(loggedIn){
         return(
             <div>
-                <h1>Hello {user.username}</h1>
                 <Link to='/'>
                     <button  role="button">Home</button>
-                </Link> 
+                </Link>
+                <Link to='/make_orders'>
+                    <button  role="button">Make an Order</button>
+                </Link>
                 <button  role="button" onClick={handleLogout}> Logout </button>
             </div>
         )
