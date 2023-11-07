@@ -1,10 +1,37 @@
 import React from "react";
+import EditOrder from "./EditOrder";
 
 
-function OrderCards({quantity, note, product_name, date}){
+function OrderCards({quantity, note, product_name, date, store, order, setStore}){
 
-    const currentDate = new Date(date).toString();
-    
+
+    // const {store, setStore} = useContext(UserContext)
+
+    console.log(order)
+    console.log(store)
+
+    const currentDate = new Date(date).toDateString();
+
+    function handleDeleteClick(){
+
+        fetch(`/orders/${order.id}`, {
+            method: "DELETE",
+        })
+        .then((r)=> {
+            if(r.ok){
+                onDeleteOrder(order)
+            }
+        })
+    }
+
+    function onDeleteOrder(order_deleted){
+
+        const updatedOrders = store.orders.filter((or) => or.id !== order_deleted.id)
+
+        setStore({...store, orders: updatedOrders})
+        
+    }
+
     return(
         <div>
             <section>
@@ -15,6 +42,10 @@ function OrderCards({quantity, note, product_name, date}){
                         <p>Quantity:  {quantity}</p>
                         <p>Note: {note}</p>
                         <p>{currentDate}</p>
+                        <button className="remove" onClick={handleDeleteClick}>
+                        delete order
+                        </button> 
+                        <EditOrder order = {order}/>
                     </div>
                     </div>
                 </div>

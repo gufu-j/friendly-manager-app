@@ -28,7 +28,7 @@ function App() {
       .then((r) => setProducts(r))
   },[])
 
-  console.log(products)
+  // console.log(products)
 
 
 
@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/login" element={ <Login /> } />
               <Route exact path="/signup" element={ <SignUp admin= {admin}/>}/>
                 <Route exact path="/orders" element={<Order />}/>
-                  <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
+                  <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts} />}/>
                     <Route exact path="/" element={ <Home  />} />
           </Routes>
     </UserProvider>

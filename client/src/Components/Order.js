@@ -4,7 +4,7 @@ import OrderCards from "./OrderCards";
 
 function Order(){
 
-    const {store} = useContext(UserContext)
+    const {store, setStore} = useContext(UserContext)
     console.log(store)
 
     if (store.length === 0){
@@ -17,13 +17,16 @@ function Order(){
         <div>
             <h1>Orders</h1>
         <div className="background_two">
-            { store.length === 0 ? true : store.orders.map((e) => 
+            { store.length === 0 ? true : store.orders.reverse().map((e) => 
             <OrderCards 
             key ={e.id}
             note ={e.note}
             product_name ={e.product_name}
             quantity ={e.quantity}
-            date = {e.created_at}/> ) 
+            date = {e.created_at}
+            store = {store}
+            order = {e}
+            setStore = {setStore}/> ) 
             }
         </div>
         </div>

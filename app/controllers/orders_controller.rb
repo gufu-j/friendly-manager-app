@@ -23,15 +23,29 @@ class OrdersController < ApplicationController
     render json: order, status: :created
    end
 
+   def destroy
+    order = @current_user.store.orders.find(params[:id])
+    order.destroy
+    head :no_content
+    end
+
+    def update 
+        order = @current_user.store.orders.find(params[:id])
+        order.update!(order_params)
+        render json: order
+    end
+
+
    private 
 
    def order_params
-    params.permit(:quantity, :note, :store_id, :product_id, :product_name, :status)
+    params.permit(:quantity, :note, :store_id, :product_id)
    end
 
    def render_unprocessable_entity_response(invalid)
     render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
    end
+
 
 
 end

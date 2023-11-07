@@ -1,26 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// import { UserContext } from "./context/user";
+import { UserContext } from "./context/user";
+import { useContext } from "react";
 
 
-function OrderForm({products, setProducts}){
-
-    console.log(products)
+function OrderForm({products}){
 
 
-    const [quantity, setQuantity] = useState()
+    const {store, setStore} = useContext(UserContext)
+
+    
+
+    let store_id
+    if (store.length === 0){
+        <div></div>
+    }else{
+        store_id = store.id
+    }
+
+    const [quantity, setQuantity] = useState("")
     const [note, setNote] = useState("")
-    const [status, setStatus] = useState(false)
-    const [selected, setSelected] = useState(null)
-
-    console.log(selected)
-
-   function handleSelect(){
-
-   }
-
-
+    const [selected, setSelected] = useState("")
+    const [errors, setErrors] = useState([])
+        
+    let selected_product = parseInt(selected)
 
  
     function handleSubmitNewCake(e){
@@ -28,7 +32,9 @@ function OrderForm({products, setProducts}){
          const itemData = {
             quantity: quantity,
             note: note,
-            status: status
+            product_id: selected_product,
+            store_id: store_id
+            
          }
          fetch("/orders",{
             method: "POST",
@@ -38,11 +44,31 @@ function OrderForm({products, setProducts}){
             body: JSON.stringify(itemData),
          })
          .then((r) => r.json())
-         .then((data) => console.log(data))
+         .then((data) => {
+            if(!data.errors){
+                onAddOrder(data)
+                setQuantity("")
+                setNote("")
+                setSelected("")
+            }else{
+                const errorList = data.errors.map((e) => (
+                    <div key={e}>
+                    <ul style={{color: "red"}}>{e}</ul>
+                 </div>
+                ))
+
+                setErrors(errorList)
+            }
+         })
 
        
     }
 
+function onAddOrder(newOrder){
+        console.log(newOrder)
+        setStore({...store, orders: [...store.orders, newOrder]})
+    
+}
     
 
 
@@ -55,12 +81,12 @@ function OrderForm({products, setProducts}){
                 <h1> Add an order </h1>
                 <input type= "text" id= "quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="quantity"/>
                 <input type= "text" id= "note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="note"/>
-                <button onClick={ ()=> setStatus(true)}> Toggle Boolean</button>
-                <select > 
-                {products === 0? console.log(true) : products.map((e) => <option key={e.id} value="" >{e.name} </option> )}
+                <select value={selected} onChange={(e) => setSelected(e.target.value)} > 
+                {products === 0? console.log(true) : products.map((e) => <option key={e.id} value={e.id}> {e.name} </option> )}
                 </select>
                 <button type="submit"> add order </button>
             </form>
+            {errors}
         </div>
     )
 }

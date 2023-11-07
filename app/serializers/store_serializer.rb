@@ -1,5 +1,5 @@
 class StoreSerializer < ActiveModel::Serializer
-  attributes :id, :phone_number, :location, :user_id
+  attributes :id, :phone_number, :location, :user_id, :orders
 
   has_many :orders
   has_many :products, through: :orders
@@ -9,5 +9,7 @@ class StoreSerializer < ActiveModel::Serializer
   # def valid_user
   #   object.user.admin
   # end
+
+
 
 end
