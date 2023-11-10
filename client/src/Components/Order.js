@@ -5,12 +5,12 @@ import OrderCards from "./OrderCards";
 function Order(){
 
     const {store, setStore} = useContext(UserContext)
-    console.log(store)
+    // console.log(store)
 
     if (store.length === 0){
-        console.log("true")
+        // console.log("true")
     }else{
-        console.log(store)
+        // console.log(store)
     }
 
     return(

@@ -14,6 +14,8 @@ import SignUp from './SignUp';
 import Order from './Order';
 import OrderForm from './OrderForm';
 
+import TotalOrders from './TotalOrders';
+
 
 function App() {
 
@@ -28,10 +30,6 @@ function App() {
       .then((r) => setProducts(r))
   },[])
 
-  // console.log(products)
-
-
-
   return (
     <div>
     <div>
@@ -42,6 +40,8 @@ function App() {
               <Route exact path="/signup" element={ <SignUp admin= {admin}/>}/>
                 <Route exact path="/orders" element={<Order />}/>
                   <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts} />}/>
+                  <Route exact path="/total_orders" element={<TotalOrders />}/>
+
                     <Route exact path="/" element={ <Home  />} />
           </Routes>
     </UserProvider>

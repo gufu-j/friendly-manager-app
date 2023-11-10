@@ -1,68 +1,102 @@
 import React from "react";
 import { useState } from "react";
+import "./Modal.css";
+import { UserContext } from "./context/user";
+import { useContext } from "react";
+
+function EditOrder({order}) {
 
 
-function EditOrder({order}){
+  const {store, setStore} = useContext(UserContext)
+  // console.log(store)
 
 
-    const [ modal, setModal] = useState(false);
-    const [body, setBody] = useState(order.note);
+  const [box, setBox] = useState(false);
 
-    console.log(body)
+  const [quantity, setQuantity] = useState(order.quantity)
+    const [note, setNote]= useState(order.note)
 
-    const toggleModal = () => {
-        setModal(!modal);
+    let quantityInterger = parseInt(quantity)
+
+  const toggleModal = () => {
+    setBox(!box);
+  };
+
+
+  
+      function handleSubmit(e){
+      e.preventDefault();
+      fetch(`/orders/${order.id}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                note: note,
+                quantity: quantityInterger,
+            }),
+        })
+        .then((r) => r.json())
+        .then((updatedOrder) => handleUpdateReview(updatedOrder))
     }
 
 
-    // function handleSubmit(){
-    //     e.preventDefault()
-    //     fetch(`/orders/${order.id}`,{
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-
-    //         body: JSON.stringify({
-    //             note: body,
-    //         }),
-    //     })
-    //     .then((r) => r.json())
-    //     .then((updatedOrder) => console.log(updatedOrder))
-    // }
 
 
 
-    return(
-        <>
-        <button onClick={toggleModal} className="button"> edit order </button>
+    function handleUpdateReview(updatedOrder){
+  
+      const storeOrders = store.orders.map((or) => {
+        if(or.id === updatedOrder.id){
+          return updatedOrder
+        }else{
+          return or
+        }
+      })
 
-     {modal && (
-       <div className="modal">
-         <div onClick={toggleModal} className="overlay"></div>
-         <div className="modal-content">
-           <h1>Edit Order</h1>
-           <div>
-           {/* <form onSubmit={handleSubmit} >
-               <input
-               type="text"
-               name="name"
-               value={body}
-               onChange={(e)=> setBody(e.target.value)} 
-               placeholder="order"     
-               />
-               <button type="submit" > Update Review </button>
-           </form> */}
-           </div>
-           <button className="close-modal" onClick={toggleModal}>
-             Close
-           </button>
-         </div>
-       </div>
-       )}
-       </>
-    )
+      setStore({...store, orders: storeOrders})
+    }
+
+
+
+
+
+  return (
+    <>
+      <button onClick={toggleModal}>
+        Edit
+      </button>
+      {box && (
+        <div >
+          <div onClick={toggleModal}></div>
+          <div >
+            <h2>Hello Modal</h2>
+         <form onSubmit={handleSubmit} >
+          <input
+          type="text"
+          name="quantity"
+          value={quantity}
+          onChange={(e)=> setQuantity(e.target.value)} 
+          placeholder="quantity"     
+          />
+          <input
+          type="text"
+          name="note"
+          value={note}
+          onChange={(e)=> setNote(e.target.value)} 
+          placeholder="note" 
+          />
+         <button type="submit"  > Update Review </button>
+          </form> 
+          </div>
+          <button className="close-modal" onClick={toggleModal}>
+              Close
+            </button>
+        </div>
+      )}
+    </>
+  );
 }
-
 
 export default EditOrder

@@ -1,14 +1,9 @@
 import React from "react";
 import EditOrder from "./EditOrder";
+import "./Cards.css";
 
 
 function OrderCards({quantity, note, product_name, date, store, order, setStore}){
-
-
-    // const {store, setStore} = useContext(UserContext)
-
-    console.log(order)
-    console.log(store)
 
     const currentDate = new Date(date).toDateString();
 
@@ -24,6 +19,7 @@ function OrderCards({quantity, note, product_name, date, store, order, setStore}
         })
     }
 
+
     function onDeleteOrder(order_deleted){
 
         const updatedOrders = store.orders.filter((or) => or.id !== order_deleted.id)
@@ -38,14 +34,14 @@ function OrderCards({quantity, note, product_name, date, store, order, setStore}
                 <div className="container_two">
                     <div className="cards"> 
                     <div className="card">
-                        <h3>Product:  {product_name}</h3>
+                        <h3>{product_name}</h3>
                         <p>Quantity:  {quantity}</p>
                         <p>Note: {note}</p>
                         <p>{currentDate}</p>
                         <button className="remove" onClick={handleDeleteClick}>
                         delete order
                         </button> 
-                        <EditOrder order = {order}/>
+                        <EditOrder order={order}/>
                     </div>
                     </div>
                 </div>

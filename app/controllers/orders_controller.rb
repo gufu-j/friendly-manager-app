@@ -35,6 +35,15 @@ class OrdersController < ApplicationController
         render json: order
     end
 
+    # def total_quantities
+    #    orders = Order.all
+    #    quantities = orders.map{|order| order.quantity}
+    #     # total = orders.select{|order| order.quantity == 20}
+    #    render json: orders
+    # end
+
+
+
 
    private 
 

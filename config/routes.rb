@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   resources :stores, only: [:index, :show] #, :show, :create
-  resources :orders, only: [:index, :show, :create, :destroy]
+  resources :orders, only: [:index, :show, :create, :destroy, :update]
   resources :products, only: [:index, :show]
 
 
@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get "/me", to: "users#show" #stay log in
   delete "/logout", to: "sessions#destroy" #sig out
   post "/signup", to: "users#create" #create a new user
+
+
+  # get "/quantities", to: "orders#total_quantities"
 
 
 end

@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2023_10_25_023104) do
     t.integer "store_id"
     t.integer "product_id"
     t.integer "quantity"
-    t.boolean "status"
-    t.string "date"
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,7 +26,6 @@ ActiveRecord::Schema.define(version: 2023_10_25_023104) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

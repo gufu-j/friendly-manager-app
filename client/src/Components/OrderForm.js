@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./context/user";
 import { useContext } from "react";
+import "./OrderForm.css";
 
 
 function OrderForm({products}){
@@ -49,7 +50,7 @@ function OrderForm({products}){
                 onAddOrder(data)
                 setQuantity("")
                 setNote("")
-                setSelected("")
+                setSelected(selected)
             }else{
                 const errorList = data.errors.map((e) => (
                     <div key={e}>
@@ -65,7 +66,6 @@ function OrderForm({products}){
     }
 
 function onAddOrder(newOrder){
-        console.log(newOrder)
         setStore({...store, orders: [...store.orders, newOrder]})
     
 }
@@ -73,19 +73,28 @@ function onAddOrder(newOrder){
 
 
     return(
-        <div>
-             <Link to='/orders'>
-                    <button  role="button">orders</button>
-            </Link>
-            <form onSubmit={handleSubmitNewCake}>
+        <div className="form-box">
+            <div className="card_two">
+                <form onSubmit={handleSubmitNewCake}>
+                <div className="field1">
                 <h1> Add an order </h1>
                 <input type= "text" id= "quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="quantity"/>
                 <input type= "text" id= "note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="note"/>
-                <select value={selected} onChange={(e) => setSelected(e.target.value)} > 
-                {products === 0? console.log(true) : products.map((e) => <option key={e.id} value={e.id}> {e.name} </option> )}
+
+                <select value={selected} onChange={(e) => setSelected(e.target.value)} className="selection"> 
+                    <option value=""> Pick a Product </option>
+                    {products === 0? null : products.map((e) => 
+                        <option key={e.id} value={e.id}> {e.name} </option> 
+                        )
+                    }
                 </select>
-                <button type="submit"> add order </button>
-            </form>
+                </div>
+                <button type="submit" id="submitBtn" className="button_one"> add order </button>
+                 </form>
+                <Link to='/orders'>
+                        <button  role="button" className="button_two" >orders</button>
+                 </Link>
+             </div>
             {errors}
         </div>
     )
@@ -93,24 +102,3 @@ function onAddOrder(newOrder){
 
 export default OrderForm
 
-
-// , {useContext}
-
-// const {store} = useContext(UserContext)
-
-// if (store.length === 0){
-//     <div></div>
-// }else{
-//     console.log(store)
-    
-// }
-
-
-
-{/* <div className= "custom-select">
-<select>
-<option value="">{e.name}</option>
-</select>
-</div> */}
-
-// .map((e) => <option key={e.id} >{e.name}</option> )
