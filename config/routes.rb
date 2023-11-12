@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create" #create a new user
 
 
-  # get "/quantities", to: "orders#total_quantities"
+  get "/quantities/:num", to: "products#total_quantities"
+  get "/today_oders", to: "orders#today_ors"
 
 
 end

@@ -35,13 +35,11 @@ function UserProvider({children}){
     const logout = () => {
         setUser({})
         setLoggedIn(false) //set loggedIn flag
-
     }
 
     const signup = (user) => {
         setUser(user)
         setLoggedIn(true) // set loggedIn flag
-
     }
 
     useEffect(() =>{
@@ -55,7 +53,7 @@ function UserProvider({children}){
         .then((r) => setStores(r))
         }
     },[loggedIn])
-
+  
 
 
     return(

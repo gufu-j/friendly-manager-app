@@ -59,19 +59,27 @@ function EditOrder({order}) {
     }
 
 
+    if(box) {
+      document.body.classList.add('active-modal')
+    } else {
+      document.body.classList.remove('active-modal')
+    }
+
 
 
 
   return (
     <>
-      <button onClick={toggleModal}>
+      <button onClick={toggleModal} className="buttom">
         Edit
       </button>
       {box && (
-        <div >
-          <div onClick={toggleModal}></div>
+        <div className="modal">
+           <div onClick={toggleModal} className="overlay"></div>
+          {/* <div onClick={toggleModal}></div> */}
+          <div className="modal-content">
           <div >
-            <h2>Hello Modal</h2>
+            <h2>Edit order</h2>
          <form onSubmit={handleSubmit} >
           <input
           type="text"
@@ -87,12 +95,13 @@ function EditOrder({order}) {
           onChange={(e)=> setNote(e.target.value)} 
           placeholder="note" 
           />
-         <button type="submit"  > Update Review </button>
+         <button type="submit"  className="close-modal-one" > Update Review </button>
           </form> 
           </div>
-          <button className="close-modal" onClick={toggleModal}>
+          <button className="close-modal-two" onClick={toggleModal}>
               Close
             </button>
+        </div>
         </div>
       )}
     </>

@@ -6,6 +6,7 @@ function Businesses(){
 
     const {stores} = useContext(UserContext)
 
+
     let mapped_stores = stores.map((s) => 
         <div className="container" key={s.id}>
             <p className="store-name"> Home Freepot {s.id}</p>
@@ -16,6 +17,7 @@ function Businesses(){
 
 return(
     <div>
+        <h1> List of Bakeries</h1>
         {mapped_stores}
     </div>
 )

@@ -92,7 +92,7 @@ function onAddOrder(newOrder){
                 <button type="submit" id="submitBtn" className="button_one"> add order </button>
                  </form>
                 <Link to='/orders'>
-                        <button  role="button" className="button_two" >orders</button>
+                        <button  role="button" className="button_two" >check your orders</button>
                  </Link>
              </div>
             {errors}

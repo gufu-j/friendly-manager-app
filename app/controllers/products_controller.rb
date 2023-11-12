@@ -19,6 +19,16 @@ class ProductsController < ApplicationController
         end
     end
 
+    def total_quantities
+        products = Product.all
+
+       product = products.find_by(id: params[:num].to_i).orders.map{|order| order.quantity}
+        total_amount = product.reduce(0) { |total, num| total + num }
+        #quantities = orders.map{|order| order.quantity}
+        # total = orders.select{|order| order.quantity == 20}
+       render json: product
+    end
+
 
     private
 
