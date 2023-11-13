@@ -11,9 +11,9 @@ function AdminOrders({s_name, s_number, s_product, s_quantity, s_note, s_date}){
                     <div className="content">
                      <div className="cards">
                       <div className="card">
-                      <p>store {s_number}</p>
+                      <h3>store {s_number}</h3>
+                      <h3>Product: {s_product}</h3>
                             <p>{s_name}</p>
-                            <h3>{s_product}</h3>
                             <p>Quantity:  {s_quantity}</p>
                             <p>Note: {s_note}</p>
                             <p>{new Date(s_date).toDateString()}</p>

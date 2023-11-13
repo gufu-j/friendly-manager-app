@@ -9,7 +9,7 @@ function Businesses(){
 
     let mapped_stores = stores.map((s) => 
         <div className="container" key={s.id}>
-            <p className="store-name"> Home Freepot {s.id}</p>
+            <h3 className="store-name"> Home Freepot {s.id}</h3>
             <p> Location : {s.location}</p>
             <p> Phone Number : {s.phone_number}</p>
         </div>

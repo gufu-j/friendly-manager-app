@@ -10,7 +10,7 @@ function Business({store}){
          <div>
         <NavLink style={{paddingLeft: 13, textDecoration: 'none'}} to={"/orders"}>
             <div className="container">
-                <p className="store-name"> Home Freepot {store.id}</p>
+                <h3 className="store-name"> Home Freepot {store.id}</h3>
                  <p> Location : {store.location}</p>
                 <p> Phone Number : {store.phone_number}</p>
             </div>
