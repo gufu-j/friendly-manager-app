@@ -22,22 +22,32 @@ function NavBar({}){
 
     if(loggedIn){
         return(
-            <div>
-                <Link to='/'>
-                    <button  role="button">Home</button>
-                </Link>
-                
+            <div>    
                 {user.admin === true ?
+                <div>
+                    <Link to='/'>
+                    <button  role="button">Home</button>
+                    </Link>
                     <Link to='/total_orders'>
                     <button  role="button">Total Orders</button>
                     </Link> 
+                    <Link to='/daily_orders'>
+                    <button> Dayli Orders</button>
+                    </Link>
+                    <button  role="button" onClick={handleLogout}> Logout </button>
+                </div>
                     :
+                 <div>
+                    <Link to='/'>
+                    <button  role="button">Home</button>
+                    </Link>
                     <Link to='/make_orders'>
                         <button  role="button">Make an Order</button>
                     </Link>
+                     <button  role="button" onClick={handleLogout}> Logout </button>
+                     </div>  
                 }
 
-                <button  role="button" onClick={handleLogout}> Logout </button>
             </div>
         )
     }else{
@@ -46,9 +56,9 @@ function NavBar({}){
                 <Link to='/login'>
                     <button  role="button" >Login</button>
                 </Link>
-                <Link to='/signup'>
+                {/* <Link to='/signup'>
                     <button  role="button" >Signup</button>
-                </Link>
+                </Link> */}
                 <Link to='/'>
                     <button  role="button" >home</button>
                 </Link>

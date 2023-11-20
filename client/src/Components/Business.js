@@ -6,6 +6,8 @@ import "./Business.css";
 
 function Business({store}){
 
+    
+
     return(
          <div>
         <NavLink style={{paddingLeft: 13, textDecoration: 'none'}} to={"/orders"}>

@@ -4,17 +4,18 @@ import { UserContext } from "./context/user";
 import { useNavigate } from "react-router-dom";
 
 
-function SignUp({admin}){
+function SignUp({admin, setAdmin, phoneNumber, setPhoneNumber, location, setLocation}){
+
+    console.log(admin)
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [emailAddress, setEmailAddress] = useState("")
     const [errors, setErrors] = useState([])
 
-    const{signup} = useContext(UserContext)
+    const{signup, user} = useContext(UserContext)
     const navigate = useNavigate()
-
-    // console.log(errors)
     
 
     function handleSubmit(e) {
@@ -28,6 +29,7 @@ function SignUp({admin}){
                 username: username,
                 password: password,
                 password_confirmation: passwordConfirmation,
+                email_address: emailAddress,
                 admin: admin,
             }),
         })
@@ -37,16 +39,39 @@ function SignUp({admin}){
                 signup(user)
                 navigate('/')
              } else {
-                console.log(user)
                 setUsername("")
                 setPassword("")
                 setPasswordConfirmation("")
-                const errorLis = user.errors.map(e => <li style={{color:"red"}} key={e}>{e}</li>)
+                setEmailAddress("")
+                setAdmin(false)
+                const errorLis = user.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
                 setErrors(errorLis)
              }
         })
-        
+
+        fetch("/log_in_create_store", {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json",
+            },
+            body: JSON.stringify({
+                phone_number:  phoneNumber,
+                location: location,
+                user_id: user.id
+            }),
+        })
+        .then(res => res.json())
+        .then(data =>  {
+            if (!data.errors) {
+             } else {
+                setLocation("")
+                setPhoneNumber("")
+                const errorLis = user.errors.map(e => <ul style={{color:"red"}} key={e}>{e}</ul>)
+                setErrors(errorLis)
+             }
+        })        
     }
+
 
     return(
         <div>
@@ -55,6 +80,9 @@ function SignUp({admin}){
                     <input type= "text" id="username" value= {username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
                         <input type= "text" id="password" value= {password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
                             <input type= "text" id="passwordConfirmation" value= {passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} placeholder="password confirmation"/>
+                                <input type= "text" id="emailAddress" value= {emailAddress} onChange={(e) => setEmailAddress(e.target.value)} placeholder="email_address"/>
+                                     <input type= "text" id="phoneNumber" value= {phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="store phone number"/>
+                                        <input type= "text" id="location" value= {location} onChange={(e) => setLocation(e.target.value)} placeholder="store location"/>
                                  <button type= "submit">Sign up</button>
             </form>
             <ul>

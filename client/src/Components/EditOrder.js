@@ -49,11 +49,17 @@ function EditOrder({order}) {
   
       const storeOrders = store.orders.map((or) => {
         if(or.id === updatedOrder.id){
+
+          // const i = store.orders.indexOf(or)
+          // const sp = store.orders[i]
+          
           return updatedOrder
         }else{
           return or
         }
       })
+
+      console.log(storeOrders)
 
       setStore({...store, orders: storeOrders})
     }

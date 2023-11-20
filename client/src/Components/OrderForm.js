@@ -51,6 +51,9 @@ function OrderForm({products}){
                 setQuantity("")
                 setNote("")
                 setSelected(selected)
+                console.log(data)
+                alert (`${data.product_name} has been ordered ` );
+                
             }else{
                 const errorList = data.errors.map((e) => (
                     <div key={e}>
@@ -61,20 +64,18 @@ function OrderForm({products}){
                 setErrors(errorList)
             }
          })
-
-       
     }
 
 function onAddOrder(newOrder){
         setStore({...store, orders: [...store.orders, newOrder]})
     
 }
+
     
-
-
     return(
         <div className="form-box">
             <div className="card_two">
+                <div>
                 <form onSubmit={handleSubmitNewCake}>
                 <div className="field1">
                 <h1> Add an order </h1>
@@ -89,11 +90,12 @@ function onAddOrder(newOrder){
                     }
                 </select>
                 </div>
-                <button type="submit" id="submitBtn" className="button_one"> add order </button>
+                <button type="submit" id="submitBtn" className="button_one" > add order </button>
                  </form>
                 <Link to='/orders'>
                         <button  role="button" className="button_two" >check your orders</button>
                  </Link>
+             </div>
              </div>
             {errors}
         </div>

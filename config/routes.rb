@@ -6,13 +6,15 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:index, :show] #, :show, :create
   resources :orders, only: [:index, :show, :create, :destroy, :update]
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :create]
 
 
   post "/login", to: "sessions#create" #check user
   get "/me", to: "users#show" #stay log in
   delete "/logout", to: "sessions#destroy" #sig out
   post "/signup", to: "users#create" #create a new user
+
+  post "/log_in_create_store", to: "stores#create_single_store"
 
 
   get "/quantities/:num", to: "products#total_quantities"

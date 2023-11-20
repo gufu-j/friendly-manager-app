@@ -1,3 +1,4 @@
+
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import React, { useEffect } from 'react';
@@ -8,15 +9,18 @@ import NavBar from './NavBar';
 
 import Home from './Home';
 import Login from './Login';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 import Order from './Order';
 import OrderForm from './OrderForm';
 import TotalOrders from './TotalOrders';
+import DailyOrders from './DailyOrders';
 
 
 function App() {
 
-  const [admin, setAdmin] = useState(false);
+  // const [admin, setAdmin] = useState(false);
+  // const [phoneNumber, setPhoneNumber] = useState("")
+  // const [location, setLocation] = useState("")
 
   const [products, setProducts] = useState([])
 
@@ -33,11 +37,12 @@ function App() {
         <NavBar/>
           <Routes>
             <Route exact path="/login" element={ <Login /> } />
-              <Route exact path="/signup" element={ <SignUp admin= {admin}/>}/>
+              {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
                 <Route exact path="/orders" element={<Order />}/>
                   <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
                   <Route exact path="/total_orders" element={<TotalOrders />}/>
-                    <Route exact path="/" element={ <Home />} />
+                  <Route exac path="/daily_orders" element={<DailyOrders/>}/>
+                  <Route exact path="/" element={ <Home />} />
           </Routes>
     </UserProvider>
     </div>
