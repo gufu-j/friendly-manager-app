@@ -99,7 +99,6 @@ function TotalOrders(){
                  <input type="text" className="input" placeholder="Product Name"/>
                 </div>
             </div>
-                
             {all_cards_list}
         </div>
     )

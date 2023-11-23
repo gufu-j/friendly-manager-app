@@ -7,6 +7,7 @@ import { UserProvider } from './context/user';
 import NavBar from './NavBar';
 
 import { StoreProvider } from './context/store';
+import { OrderProvider } from './context/order';
 
 
 import Home from './Home';
@@ -40,6 +41,7 @@ function App() {
     <div>
       <UserProvider>
       <StoreProvider>
+        <OrderProvider>
         <NavBar/>
           <Routes>
             <Route exact path="/login" element={ <Login /> } />
@@ -53,6 +55,7 @@ function App() {
                   <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
                   <Route exact path="/" element={ <Home />} />
           </Routes>
+            </OrderProvider>
           </StoreProvider>
     </UserProvider>
     </div>
