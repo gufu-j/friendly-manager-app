@@ -7,15 +7,32 @@ function OrdersAdmin(){
 
     const {orders} = useContext(OrderContext)
 
-    const [searchOrder, setSearchOrder] = useState("")
+    const [searchStoreN, setSearchStoreN] = useState("")
     const [searchProduct, setSearchProduct] = useState("")
+    const [searchByDate, setSearchByDate] = useState("")
 
-    console.log(searchOrder)
+    console.log(searchStoreN)
     console.log(searchProduct)
-    
     console.log(orders)
 
-    const orderslist = orders.map((or) =>
+    const filtered_orders = orders.filter( s => {
+        if( 0 < parseInt(searchStoreN)){
+            return s.store_number === parseInt(searchStoreN)
+        }else if(searchProduct !== ""){
+            console.log(searchProduct)
+            return s.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
+        }else if(searchByDate !== ""){
+            const currentDate = new Date(s.created_at).toDateString();
+            return currentDate.toLowerCase().includes(searchByDate.toLocaleLowerCase())
+        }else{
+            return s
+        }
+    })
+
+    console.log(filtered_orders)
+
+    const orderslist = filtered_orders.map((or) =>
+    <div key={or.id}>
         <div className="row">
                     <div className="column">
                         <div className="content">
@@ -31,14 +48,16 @@ function OrdersAdmin(){
                         </div>
                     </div>
         </div>
+    </div>
     )
 
     return(
         <div>
                 <h1>All Stores' Orders</h1>
                 <label className="label"> Search For Store  </label>
-                <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchOrder(e.target.value)}/>
+                <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchStoreN(e.target.value)}/>
                 <input type="text" className="input" placeholder="Product Name" onChange={(e)=>setSearchProduct(e.target.value)}/>
+                <input type="text" className="input" placeholder="Date" onChange={(e)=>setSearchByDate(e.target.value)}/>
                 {orderslist}
         </div>
     )
