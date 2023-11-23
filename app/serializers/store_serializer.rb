@@ -1,5 +1,5 @@
 class StoreSerializer < ActiveModel::Serializer
-  attributes :id, :phone_number, :location, :user_id, :orders
+  attributes :id, :phone_number, :location, :user_id
 
   has_many :orders
   has_many :products, through: :orders

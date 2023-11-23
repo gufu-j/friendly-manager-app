@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
     def show 
         product = Product.find_by(id: params[:id])
         if product
-            render json:cake
+            render json: product
         else
-            render json: {error: "procut not found"}, status: :not_found
+            render json: {error: "product not found"}, status: :not_found
         end
     end
 
@@ -37,10 +37,10 @@ class ProductsController < ApplicationController
       def create
         @product = Product.new(product_params)
     
-        respond_to do |format|
+         respond_to do |format|
             
             if @product.save
-                ProductMailer.with(product: @product).new_product_email.deliver_later
+                ProductMailer.with(product: @product).new_product_email.deliver_now
                 format.html { redirect_to(@product, notice: 'Product was successfully created.') }
                 format.json { render json: @product, status: :created, location: @product }
             else
@@ -49,12 +49,12 @@ class ProductsController < ApplicationController
             end
 
         end
-
-
       end
 
 
         private
+
+        
     
         def product_params
         params.require(:product).permit(:name)

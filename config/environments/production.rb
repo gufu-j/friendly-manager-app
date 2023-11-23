@@ -114,17 +114,4 @@ Rails.application.configure do
 
   # config/environments/production.rb
 
-config.action_mailer.delivery_method = :smtp
-host = 'localhost:3000' #replace with your own url
-config.action_mailer.default_url_opt3ions = { host=> 'localhost:3000', protocol: 'http'}
-
-# SMTP settings for gmail
-config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => <"guatemaladiegojose@gmail.com">,
-  :password             => <"dpiy suzm jmhw jngf">,
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
 end

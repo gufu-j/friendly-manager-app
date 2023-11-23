@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { UserProvider } from './context/user';
 import NavBar from './NavBar';
 
+import { StoreProvider } from './context/store';
+
 
 import Home from './Home';
 import Login from './Login';
@@ -14,6 +16,9 @@ import Order from './Order';
 import OrderForm from './OrderForm';
 import TotalOrders from './TotalOrders';
 import DailyOrders from './DailyOrders';
+// import StorePerClick from './StorePerClick';
+import StoreDetail from './StoreDetail';
+import OrdersAdmin from './OrdersAdmin';
 
 
 function App() {
@@ -34,6 +39,7 @@ function App() {
     <div>
     <div>
       <UserProvider>
+      <StoreProvider>
         <NavBar/>
           <Routes>
             <Route exact path="/login" element={ <Login /> } />
@@ -41,9 +47,13 @@ function App() {
                 <Route exact path="/orders" element={<Order />}/>
                   <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
                   <Route exact path="/total_orders" element={<TotalOrders />}/>
-                  <Route exac path="/daily_orders" element={<DailyOrders/>}/>
+                  <Route exact path="/daily_orders" element={<DailyOrders/>}/>
+
+                  <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
+                  <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
                   <Route exact path="/" element={ <Home />} />
           </Routes>
+          </StoreProvider>
     </UserProvider>
     </div>
 
@@ -52,6 +62,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <Route exact path="/orders" element={ <Order store={store}/>} /> */}

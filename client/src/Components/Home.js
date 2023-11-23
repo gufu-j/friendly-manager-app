@@ -4,6 +4,8 @@ import Business from "./Business";
 import Businesses from "./Businesses";
 // import Order from "./Order";
 
+import { StoreProvider } from "./context/store";
+
 function Home(){
 
 
@@ -13,7 +15,12 @@ function Home(){
     if(loggedIn){
      return(
         <div>
-            {user.admin?  <Businesses/> : <Business store={store} setStore={setStore}/> }
+            {user.admin? 
+            <div>  
+                 <StoreProvider>
+                 <Businesses/> 
+                 </StoreProvider>
+            </div> : <Business store={store} setStore={setStore}/> }
         </div>
      );
      

@@ -28,12 +28,15 @@ function NavBar({}){
                     <Link to='/'>
                     <button  role="button">Home</button>
                     </Link>
-                    <Link to='/total_orders'>
-                    <button  role="button">Total Orders</button>
-                    </Link> 
-                    <Link to='/daily_orders'>
-                    <button> Dayli Orders</button>
+                    <Link to="/admin_orders">
+                    <button  role="button">Orders</button>
                     </Link>
+                    {/* <Link to='/total_orders'>
+                    <button  role="button">Total Orders</button>
+                    </Link>  */}
+                    {/* <Link to='/daily_orders'>
+                    <button> Dayli Orders</button>
+                    </Link> */}
                     <button  role="button" onClick={handleLogout}> Logout </button>
                 </div>
                     :

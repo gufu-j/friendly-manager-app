@@ -5,7 +5,7 @@ class ProductMailer < ApplicationMailer
 
         # ADMIN_EMAIL:"guatemaladiegojose@gmail.com"
     
-        mail(to: "guatemaladiegojose@gmail.com", subject: "You got a new product!")
+        mail(to: "djosegfunes1998@gmail.com", subject: "You got a new product!")
       end
 
 
