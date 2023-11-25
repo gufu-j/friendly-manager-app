@@ -31,6 +31,9 @@ function NavBar({}){
                     <Link to="/admin_orders">
                     <button  role="button">All Orders</button>
                     </Link>
+                    <Link to="/products">
+                    <button  role="button">Products</button>
+                    </Link>
                     {/* <Link to='/total_orders'>
                     <button  role="button">Total Orders</button>
                     </Link>  */}

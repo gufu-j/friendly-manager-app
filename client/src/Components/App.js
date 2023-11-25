@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 
 import { StoreProvider } from './context/store';
 import { OrderProvider } from './context/order';
+import { ProductProvider } from './context/products';
 
 
 import Home from './Home';
@@ -20,6 +21,7 @@ import DailyOrders from './DailyOrders';
 // import StorePerClick from './StorePerClick';
 import StoreDetail from './StoreDetail';
 import OrdersAdmin from './OrdersAdmin';
+import ProductsAdmin from './ProductAdmin';
 
 
 function App() {
@@ -42,19 +44,22 @@ function App() {
       <UserProvider>
       <StoreProvider>
         <OrderProvider>
-        <NavBar/>
-          <Routes>
-            <Route exact path="/login" element={ <Login /> } />
-              {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
-                <Route exact path="/orders" element={<Order />}/>
-                  <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
-                  <Route exact path="/total_orders" element={<TotalOrders />}/>
-                  <Route exact path="/daily_orders" element={<DailyOrders/>}/>
+          <ProductProvider>
+              <NavBar/>
+                <Routes>
+                  <Route exact path="/login" element={ <Login /> } />
+                    {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
+                      <Route exact path="/orders" element={<Order />}/>
+                        <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
+                        <Route exact path="/total_orders" element={<TotalOrders />}/>
+                        <Route exact path="/daily_orders" element={<DailyOrders/>}/>
 
-                  <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
-                  <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
-                  <Route exact path="/" element={ <Home />} />
-          </Routes>
+                        <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
+                        <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
+                        <Route exact path= "/products" element={<ProductsAdmin/>} />
+                        <Route exact path="/" element={ <Home />} />
+                </Routes>
+              </ProductProvider>
             </OrderProvider>
           </StoreProvider>
     </UserProvider>

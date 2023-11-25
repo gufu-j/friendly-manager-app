@@ -30,25 +30,26 @@ class ProductsController < ApplicationController
     end
 
 
-      def new
-        @product = Product.new
-      end
+      # def new
+      #   @product = Product.new
+      # end
     
       def create
-        @product = Product.new(product_params)
+        @product = Product.create!(product_params)
     
          respond_to do |format|
             
-            if @product.save
+            if @product
                 ProductMailer.with(product: @product).new_product_email.deliver_now
                 format.html { redirect_to(@product, notice: 'Product was successfully created.') }
                 format.json { render json: @product, status: :created, location: @product }
             else
                 format.html { render action: 'new' }
                 format.json { render json: @product.errors, status: :unprocessable_entity }
+    
             end
 
-        end
+          end
       end
 
 
