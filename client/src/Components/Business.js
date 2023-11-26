@@ -2,11 +2,7 @@ import React from "react";
 import { NavLink} from 'react-router-dom';
 import "./Business.css";
 
-
-
 function Business({store}){
-
-    
 
     return(
          <div>

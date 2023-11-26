@@ -16,9 +16,9 @@ function Businesses(){
             <div className="column_p">
                     <div className="content_p">
                         <div className="cards_p"></div>
-                        <div className="card_p">
-                        <h3 className="store-name"> Home Freepot {s.id}</h3>
-                        <p> Location : {s.location}</p>
+                            <div className="card_p">
+                                <h3 className="store-name"> Home Freepot {s.id}</h3>
+                            <p> Location : {s.location}</p>
                         <p> Phone Number : {s.phone_number}</p>
                     </div>
                 </div>
@@ -26,9 +26,7 @@ function Businesses(){
         </div>
     </NavLink>
     </div>
-
     )
-
 
 return(
     <div>

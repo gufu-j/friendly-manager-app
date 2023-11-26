@@ -1,18 +1,15 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/user";
 import OrderCards from "./OrderCards";
-import AdminOrders from "./AdminOrders";
 
 function Order(){
 
     const {store, setStore, user} = useContext(UserContext)
 
-
     return(
         <div>
             <h1>Orders</h1>
-            {/* {identity != "" ? console.log(true) : console.log(false)} */}
-            {user.admin === true ? <AdminOrders /> :  
+            {user.admin === true ? null :  
             <div className="background_two">
                 { store.length === 0 ? null : store.orders.reverse().map((e) => 
                 <OrderCards 

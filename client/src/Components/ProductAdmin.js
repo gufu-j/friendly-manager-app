@@ -1,41 +1,39 @@
 import React, { useState } from "react";
 import { ProductContext } from "./context/products";
-import { OrderContext } from "./context/order";
-import { StoreContext } from "./context/store";
+// import { OrderContext } from "./context/order";
+// import { StoreContext } from "./context/store";
 
 
 import { useContext } from "react";
 import './Product.css';
 
 
-
 function ProductsAdmin(){
 
     const {products, setProducts} = useContext(ProductContext)
-    const {setOrders} = useContext(OrderContext)
-    const {setStores} = useContext(StoreContext)
+    // const {setOrders} = useContext(OrderContext)
+    // const {setStores} = useContext(StoreContext)
     
 
     const [newProduct, setNewProduct] = useState("")
     const [errors, setErrors] = useState([])
 
     let product_list = products.map((p) =>
-
-    <div key={p.id}>
-        <div className="row_admin">
-                    <div className="column_admin">
-                        <div className="content">
-                        <div className="cards_admin">
-                        <div className="card_admin">
-                                <h3>{p.name}</h3>
-                                <button>🚮</button>
-                                <button>✍</button>
+        <div key={p.id}>
+            <div className="row_admin">
+                        <div className="column_admin">
+                            <div className="content">
+                                <div className="cards_admin">
+                                    <div className="card_admin">
+                                            <h3>{p.name}</h3>
+                                                <button>🚮</button>
+                                            <button>✍</button>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
+            </div>
         </div>
-    </div>
              
     )
 

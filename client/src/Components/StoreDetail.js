@@ -16,19 +16,19 @@ function StoreDetail(){
             <h1>Orders</h1>
             {singleStore? singleStore.orders.map((e) => 
             <div key={e.id}>
-            <div className="row">
-            <div className="column">
-                <div className="content">
-                 <div className="cards">
-                  <div className="card">
-                        <h3>{e.product_name}</h3>
-                        <p>Quantity:  {e.quantity}</p>
-                        <p>Note: {e.note}</p>
-                        <p>{new Date(e.created_at).toDateString()}</p>
-                     </div>
-                  </div>
+                <div className="row">
+                 <div className="column">
+                    <div className="content">
+                        <div className="cards">
+                            <div className="card">
+                                <h3>{e.product_name}</h3>
+                                    <p>Quantity:  {e.quantity}</p>
+                                        <p>Note: {e.note}</p>
+                                         <p>{new Date(e.created_at).toDateString()}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div> ) : null }
         </div>

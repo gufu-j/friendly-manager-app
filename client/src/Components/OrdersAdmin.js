@@ -28,17 +28,17 @@ function OrdersAdmin(){
         <div className="row">
                     <div className="column">
                         <div className="content">
-                        <div className="cards">
-                        <div className="card">
-                                <h3>{or.product_name}</h3>
-                                <p>{or.store_number}</p>
-                                <p>Quantity:  {or.quantity}</p>
-                                <p>Note: {or.note}</p>
-                                <p>{new Date(or.created_at).toDateString()}</p>
-                                <p>Created at {new Date(or.created_at).toLocaleTimeString()}</p>
-                                <button>🚮</button>
+                            <div className="cards">
+                                <div className="card">
+                                    <h3>{or.product_name}</h3>
+                                        <p>{or.store_number}</p>
+                                            <p>Quantity:  {or.quantity}</p>
+                                                <p>Note: {or.note}</p>
+                                            <p>{new Date(or.created_at).toDateString()}</p>
+                                        <p>Created at {new Date(or.created_at).toLocaleTimeString()}</p>
+                                    <button>🚮</button>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
         </div>
@@ -48,55 +48,13 @@ function OrdersAdmin(){
     return(
         <div>
                 <h1>All Stores' Orders</h1>
-                <label className="label"> Search For Store  </label>
-                <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchStoreN(e.target.value)}/>
-                <input type="text" className="input" placeholder="Product Name" onChange={(e)=>setSearchProduct(e.target.value)}/>
-                {/* <input type="text" className="input" placeholder="Date" onChange={(e)=>setSearchByDate(e.target.value)}/> */}
+                    <label className="label"> Search For Store  </label>
+                        <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchStoreN(e.target.value)}/>
+                         <input type="text" className="input" placeholder="Product Name" onChange={(e)=>setSearchProduct(e.target.value)}/>
+                    {/* <input type="text" className="input" placeholder="Date" onChange={(e)=>setSearchByDate(e.target.value)}/> */}
                 {orderslist}
         </div>
     )
 }
 
 export default OrdersAdmin
-
-
-
-
-
-// const filtered_orders = orders.filter( or => {
-    //     if( 0 < parseInt(searchStoreN)){
-    //         return or.store_number
-    //     }else{
-    //         return orders
-    //     }
-    //     }
-    // )
-    
-    // flter(s => {
-    //     if(searchProduct !== ""){
-    //         return s.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
-    //     }else{
-    //         return s
-    //     }
-    //     }
-    // )
-
-
-
-
-    //     }else if(searchProduct !== ""){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    //         console.log(searchProduct)
-    //         return s.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
-    //     }else if(searchByDate !== ""){
-    //         const currentDate = new Date(s.created_at).toDateString();
-    //         return currentDate.toLowerCase().includes(searchByDate.toLocaleLowerCase())
-    //     }else{
-    //         return s
-    //     }
-    // })
-
-
-
-    
-
-    // console.log(filtered_orders)

@@ -3,8 +3,6 @@ import EditOrder from "./EditOrder";
 import "./Cards.css";
 
 
-
-
 function OrderCards({quantity, note, product_name, date, store, order, setStore}){
 
     const currentDate = new Date(date).toDateString();
@@ -30,18 +28,16 @@ function OrderCards({quantity, note, product_name, date, store, order, setStore}
             <div className="row">
                 <div className="column">
                     <div className="content">
-                     <div className="cards">
-                      <div className="card">
-                            <h3>{product_name}</h3>
-                            <p>Quantity:  {quantity}</p>
-                            <p>Note: {note}</p>
-                            <p>{currentDate}</p>
-                            <button className="buttom" onClick={handleDeleteClick}>
-                            Delete
-                            </button> 
-                            <EditOrder order={order} />
-                         </div>
-                      </div>
+                        <div className="cards">
+                            <div className="card">
+                                <h3>{product_name}</h3>
+                                    <p>Quantity:  {quantity}</p>
+                                      <p>Note: {note}</p>
+                                         <p>{currentDate}</p>
+                                         <button className="buttom" onClick={handleDeleteClick}>Delete</button> 
+                                            <EditOrder order={order} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

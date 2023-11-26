@@ -8,15 +8,14 @@ function EditOrder({order}) {
 
 
   const {store, setStore} = useContext(UserContext)
-  // console.log(store)
 
 
   const [box, setBox] = useState(false);
 
   const [quantity, setQuantity] = useState(order.quantity)
-    const [note, setNote]= useState(order.note)
+  const [note, setNote]= useState(order.note)
 
-    let quantityInterger = parseInt(quantity)
+  let quantityInterger = parseInt(quantity)
 
   const toggleModal = () => {
     setBox(!box);
@@ -49,10 +48,6 @@ function EditOrder({order}) {
   
       const storeOrders = store.orders.map((or) => {
         if(or.id === updatedOrder.id){
-
-          // const i = store.orders.indexOf(or)
-          // const sp = store.orders[i]
-          
           return updatedOrder
         }else{
           return or
@@ -79,37 +74,37 @@ function EditOrder({order}) {
       <button onClick={toggleModal} className="buttom">
         Edit
       </button>
-      {box && (
-        <div className="modal">
-           <div onClick={toggleModal} className="overlay"></div>
-          {/* <div onClick={toggleModal}></div> */}
-          <div className="modal-content">
-          <div >
-            <h2>Edit order</h2>
-         <form onSubmit={handleSubmit} >
-          <input
-          type="text"
-          name="quantity"
-          value={quantity}
-          onChange={(e)=> setQuantity(e.target.value)} 
-          placeholder="quantity"     
-          />
-          <input
-          type="text"
-          name="note"
-          value={note}
-          onChange={(e)=> setNote(e.target.value)} 
-          placeholder="note" 
-          />
-         <button type="submit"  className="close-modal-one" > Update Review </button>
-          </form> 
-          </div>
-          <button className="close-modal-two" onClick={toggleModal}>
-              Close
-            </button>
-        </div>
-        </div>
-      )}
+        {box && (
+          <div className="modal">
+            <div onClick={toggleModal} className="overlay"></div>
+             <div className="modal-content">
+               <div >
+                 <h2>Edit order</h2>
+                  <form onSubmit={handleSubmit} >
+                    <input
+                    type="text"
+                    name="quantity"
+                    value={quantity}
+                    onChange={(e)=> setQuantity(e.target.value)} 
+                    placeholder="quantity"     
+                    />
+                    <input
+                    type="text"
+                    name="note"
+                    value={note}
+                    onChange={(e)=> setNote(e.target.value)} 
+                    placeholder="note" 
+                    />
+                    <button type="submit"  className="close-modal-one" > Update Review </button>
+                   </form> 
+                 </div>
+                  <button className="close-modal-two" onClick={toggleModal}>
+                   Close
+                  </button>
+                 </div>
+              </div>
+            )
+          }
     </>
   );
 }
