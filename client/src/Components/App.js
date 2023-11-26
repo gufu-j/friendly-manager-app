@@ -40,25 +40,25 @@ function App() {
     <div>
     <div>
       <UserProvider>
-      <StoreProvider>
-        <OrderProvider>
-          <ProductProvider>
-              <NavBar/>
-                <Routes>
-                  <Route exact path="/login" element={ <Login /> } />
-                    {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
-                      <Route exact path="/orders" element={<Order />}/>
-                        <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
 
-                        <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
-                        <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
-                        <Route exact path= "/products" element={<ProductsAdmin/>} />
-                        <Route exact path="/" element={ <Home />} />
+        <StoreProvider>
+          <OrderProvider>
+            <ProductProvider>
+                <NavBar/>
+                  <Routes>
+                    <Route exact path="/login" element={ <Login /> } />
+                    {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
+                    <Route exact path="/orders" element={<Order />}/>
+                    <Route exact path="/make_orders" element={<OrderForm products={products} setProducts={setProducts}/>}/>
+                    <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
+                    <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
+                    <Route exact path= "/products" element={<ProductsAdmin/>} />
+                    <Route exact path="/" element={ <Home />} />
                 </Routes>
-              </ProductProvider>
-            </OrderProvider>
-          </StoreProvider>
-    </UserProvider>
+            </ProductProvider>
+          </OrderProvider>
+        </StoreProvider>
+      </UserProvider>
     </div>
 
     </div>  
