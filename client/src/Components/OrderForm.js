@@ -90,11 +90,11 @@ function OrderForm({products}){
                         <button type="submit" id="submitBtn" className="button_one" > add order </button>
                     </form>
                     <Link to='/orders'>
-                            <button  role="button" className="button_two" >check your orders</button>
+                            <button  className="button_two" >check your orders</button>
                     </Link>
                 </div>
              </div>
-             
+
             {errors}
         </div>
     )

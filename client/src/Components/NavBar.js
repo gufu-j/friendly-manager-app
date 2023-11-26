@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./context/user";
 
-function NavBar({}){
+function NavBar(){
 
     const {logout, loggedIn, user} = useContext(UserContext)
     
@@ -26,25 +26,25 @@ function NavBar({}){
                 {user.admin === true ?
                     <div>
                         <Link to='/'>
-                        <button  role="button">Home</button>
+                        <button  >Home</button>
                         </Link>
                             <Link to="/admin_orders">
-                            <button  role="button">All Orders</button>
+                            <button  >All Orders</button>
                             </Link>
                                 <Link to="/products">
-                                <button  role="button">Products</button>
+                                <button  >Products</button>
                                 </Link>
-                                    <button  role="button" onClick={handleLogout}> Logout </button>
+                                    <button   onClick={handleLogout}> Logout </button>
                     </div>
                         :
                     <div>
                         <Link to='/'>
-                        <button  role="button">Home</button>
+                        <button  >Home</button>
                         </Link>
                             <Link to='/make_orders'>
-                                <button  role="button">Make an Order</button>
+                                <button  >Make an Order</button>
                             </Link>
-                                <button  role="button" onClick={handleLogout}> Logout </button>
+                                <button   onClick={handleLogout}> Logout </button>
                     </div>  
                 }
 
@@ -54,13 +54,13 @@ function NavBar({}){
         return (
             <div>
                 <Link to='/login'>
-                    <button  role="button" >Login</button>
+                    <button   >Login</button>
                 </Link>
                     {/* <Link to='/signup'>
-                        <button  role="button" >Signup</button>
+                        <button   >Signup</button>
                     </Link> */}
                 <Link to='/'>
-                    <button  role="button" >home</button>
+                    <button   >home</button>
                 </Link>
                 <hr/>
             </div>

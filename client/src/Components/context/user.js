@@ -52,7 +52,7 @@ function UserProvider({children}){
         .then((r) => r.json())
         .then((r) => setStores(r))
         }
-    },[loggedIn])
+    },[loggedIn, user])
   
 
 
