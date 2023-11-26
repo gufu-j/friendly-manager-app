@@ -19,8 +19,6 @@ function ProductsAdmin(){
     const [newProduct, setNewProduct] = useState("")
     const [errors, setErrors] = useState([])
 
-    // console.log(products)
-
     let product_list = products.map((p) =>
 
     <div key={p.id}>
