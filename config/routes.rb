@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:index, :show] #, :show, :create
   resources :orders, only: [:index, :show, :create, :destroy, :update]
-  resources :products, only: [:index, :show, :create]
+  resources :products, only: [:index, :show, :create, :destroy, :update]
 
 
   post "/login", to: "sessions#create" #check user

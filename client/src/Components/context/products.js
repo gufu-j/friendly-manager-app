@@ -14,6 +14,10 @@ function ProductProvider({children}){
         .then((r) => setProducts(r))
     },[])
 
+
+    
+
+
     return(
         // add loggedIn to global and state
         <ProductContext.Provider value={{products, setProducts}}>

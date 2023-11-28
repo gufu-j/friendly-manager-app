@@ -59,6 +59,10 @@ class OrdersController < ApplicationController
     render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
    end
 
+   def render_not_found_response
+    render json: {error: "Order Not found"}, status: :not_found 
+end
+
 
 
 end

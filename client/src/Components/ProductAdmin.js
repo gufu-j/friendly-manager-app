@@ -1,24 +1,39 @@
 import React, { useState } from "react";
 import { ProductContext } from "./context/products";
-// import { OrderContext } from "./context/order";
-// import { StoreContext } from "./context/store";
-
-
 import { useContext } from "react";
+
+
 import './Product.css';
+import EditProductAdmin from "./EditProductsAdmin";
+
+
+
 
 
 function ProductsAdmin(){
 
     const {products, setProducts} = useContext(ProductContext)
-    // const {setOrders} = useContext(OrderContext)
-    // const {setStores} = useContext(StoreContext)
     
 
     const [newProduct, setNewProduct] = useState("")
     const [errors, setErrors] = useState([])
 
+    console.log(products)
+
+    function handleUpdate(updatedProduct){
+        const updatedProducts = products.map((item) => {
+            if(item.id === updatedProduct.id){
+                return updatedProduct;
+            }else{
+                return item;
+            }
+        });
+        setProducts(updatedProducts)
+    }
+
+
     let product_list = products.map((p) =>
+
         <div key={p.id}>
             <div className="row_admin">
                         <div className="column_admin">
@@ -26,15 +41,15 @@ function ProductsAdmin(){
                                 <div className="cards_admin">
                                     <div className="card_admin">
                                             <h3>{p.name}</h3>
-                                                <button>🚮</button>
-                                            <button>✍</button>
+                                            <EditProductAdmin product={p} handleUpdate={handleUpdate} />
                                         </div>
                                     </div>
                             </div>
                         </div>
             </div>
         </div>
-             
+         
+        
     )
 
     function handleSubmitNewProduct(e){
@@ -71,11 +86,17 @@ function ProductsAdmin(){
     }
 
     
-function onAddProduct(newProduct){
-    let newArr = products
-    newArr.push(newProduct)    
-    setProducts(newArr)
-}
+        function onAddProduct(newProduct){
+            let newArr = products
+            newArr.push(newProduct)    
+            setProducts(newArr)
+        }
+
+
+
+        
+
+
 
     return(
         <div>

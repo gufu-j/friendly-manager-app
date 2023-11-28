@@ -9,21 +9,41 @@ function OrdersAdmin(){
 
     const [searchStoreN, setSearchStoreN] = useState("")
     const [searchProduct, setSearchProduct] = useState("")
-    // const [searchByDate, setSearchByDate] = useState("")
 
-    // console.log(searchStoreN)
-    // console.log(searchProduct)
-    // console.log(orders)
 
-    const filtered_orders = orders.filter( or => {
-        return  or.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase()) || or.store_number === parseInt(searchStoreN)
+    const filteredByStored = orders.filter( or => {
+        //if state value is empt string return true
+            if(searchStoreN === ""){
+            return true
+            }
+        return  or.store_number === parseInt(searchStoreN)
         }
     )
 
+    console.log(filteredByStored)
+
     
+    const filtered_orders = filteredByStored.filter( or => {
+        return  or.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
+        }
+    )
 
+   
 
-    const orderslist = filtered_orders.map((or) =>
+    // function handleDeleteClick(or) {
+    //     fetch(`/orders/${or.id}`, {
+    //       method: "DELETE",
+    //     })
+    //       .then((r) => r.json())
+    //       .then(() => console.log("deleted!"));
+    //   }
+
+    //   function onDeleteClick(item){
+    //     console.log(item)
+    // }
+
+    
+    const orderslist = filtered_orders.reverse().map((or) =>
     <div key={or.id}>
         <div className="row">
                     <div className="column">
@@ -36,7 +56,7 @@ function OrdersAdmin(){
                                                 <p>Note: {or.note}</p>
                                             <p>{new Date(or.created_at).toDateString()}</p>
                                         <p>Created at {new Date(or.created_at).toLocaleTimeString()}</p>
-                                    <button>🚮</button>
+                                    {/* <button onClick={()=>handleDeleteClick(or.id)}>🚮</button> */}
                                 </div>
                             </div>
                         </div>
@@ -51,7 +71,6 @@ function OrdersAdmin(){
                     <label className="label"> Search For Store  </label>
                         <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchStoreN(e.target.value)}/>
                          <input type="text" className="input" placeholder="Product Name" onChange={(e)=>setSearchProduct(e.target.value)}/>
-                    {/* <input type="text" className="input" placeholder="Date" onChange={(e)=>setSearchByDate(e.target.value)}/> */}
                 {orderslist}
         </div>
     )

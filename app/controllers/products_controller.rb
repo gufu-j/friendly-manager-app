@@ -52,6 +52,18 @@ class ProductsController < ApplicationController
           end
       end
 
+      # def destroy
+      #   product = @current_user.store.products.find(params[:id])
+      #   product.destroy
+      #   head :no_content
+      # end
+
+      def update 
+        product = Product.find(params[:id])
+        product.update!(product_params)
+        render json: product
+      end
+
 
         private
 
@@ -64,5 +76,9 @@ class ProductsController < ApplicationController
         def render_unprocessable_entity_response(invalid)
             render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
         end
+
+        def render_not_found_response
+          render json: {error: "Product Not found"}, status: :not_found 
+      end
 
 end

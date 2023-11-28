@@ -31,7 +31,7 @@ function Businesses(){
 return(
     <div>
         
-        <h1> List of Stores</h1>
+        <h1> List of All Stores</h1>
         {mapped_stores}
     </div>
 )

@@ -13,8 +13,8 @@ function StoreDetail(){
 
     return(
         <div>
-            <h1>Orders</h1>
-            {singleStore? singleStore.orders.map((e) => 
+            <h1>Orders from Store {id}</h1>
+            {singleStore? singleStore.orders.reverse().map((e) => 
             <div key={e.id}>
                 <div className="row">
                  <div className="column">
