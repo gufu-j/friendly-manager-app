@@ -27,21 +27,6 @@ function OrdersAdmin(){
         return  or.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
         }
     )
-
-   
-
-    // function handleDeleteClick(or) {
-    //     fetch(`/orders/${or.id}`, {
-    //       method: "DELETE",
-    //     })
-    //       .then((r) => r.json())
-    //       .then(() => console.log("deleted!"));
-    //   }
-
-    //   function onDeleteClick(item){
-    //     console.log(item)
-    // }
-
     
     const orderslist = filtered_orders.reverse().map((or) =>
     <div key={or.id}>

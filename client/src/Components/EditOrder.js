@@ -1,18 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import "./Modal.css";
-import { UserContext } from "./context/user";
-import { useContext } from "react";
+// import { UserContext } from "./context/user";
+// import { useContext } from "react";
 
-function EditOrder({order}) {
+function EditOrder({order, handleUpdateReview}) {
 
 
-  const {store, setStore} = useContext(UserContext)
+  // const {store, setStore} = useContext(UserContext)
 
 
   const [box, setBox] = useState(false);
 
   const [quantity, setQuantity] = useState(order.quantity)
+
   const [note, setNote]= useState(order.note)
 
   let quantityInterger = parseInt(quantity)
@@ -41,32 +42,11 @@ function EditOrder({order}) {
     }
 
 
-
-
-
-    function handleUpdateReview(updatedOrder){
-  
-      const storeOrders = store.orders.map((or) => {
-        if(or.id === updatedOrder.id){
-          return updatedOrder
-        }else{
-          return or
-        }
-      })
-
-      console.log(storeOrders)
-
-      setStore({...store, orders: storeOrders})
-    }
-
-
     if(box) {
       document.body.classList.add('active-modal')
     } else {
       document.body.classList.remove('active-modal')
     }
-
-
 
 
   return (

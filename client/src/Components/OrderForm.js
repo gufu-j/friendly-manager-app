@@ -66,7 +66,8 @@ function OrderForm({products}){
     }
 
      function onAddOrder(newOrder){
-                setStore({...store, orders: [...store.orders, newOrder]})    
+
+                setStore({...store, orders: [newOrder, ...store.orders]})  
       }
 
     

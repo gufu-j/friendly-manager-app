@@ -6,12 +6,32 @@ function Order(){
 
     const {store, setStore, user} = useContext(UserContext)
 
+
+    function handleUpdateReview(updatedOrder){
+  
+        const storeOrders = store.orders.reverse().map((or) => {
+          if(or.id === updatedOrder.id){
+            return updatedOrder
+          }else{
+            return or
+          }
+        })  
+        setStore({...store, orders: storeOrders})
+      }
+
+      function onDeleteOrder(order_deleted){
+        const updatedOrders = store.orders.reverse().filter((or) => or.id !== order_deleted.id)
+        setStore({...store, orders: updatedOrders})
+    }
+
+
+
     return(
         <div>
             <h1>Orders</h1>
             {user.admin === true ? null :  
             <div className="background_two">
-                { store.length === 0 ? null : store.orders.reverse().map((e) => 
+                { store.length === 0? null : store.orders.map((e) => 
                 <OrderCards 
                 key ={e.id}
                 note ={e.note}
@@ -20,7 +40,10 @@ function Order(){
                 date = {e.created_at}
                 store = {store}
                 order = {e}
-                setStore = {setStore}/> ) 
+                setStore = {setStore}
+                handleUpdateReview = {handleUpdateReview}
+                onDeleteOrder = {onDeleteOrder}
+                /> ) 
                 }
             </div>            
             }
