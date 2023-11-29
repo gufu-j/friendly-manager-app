@@ -29,6 +29,19 @@ class OrdersController < ApplicationController
     head :no_content
     end
 
+    def adminDeleteOrder
+        order = Order.find(params[:id])
+        order.destroy
+        head :no_content
+    end
+
+    def adminUpdateOrder 
+        order = Order.find(params[:id])
+        order.update!(order_params)
+        render json: order
+      end
+
+
     def update 
         order = @current_user.store.orders.find(params[:id])
         order.update!(order_params)

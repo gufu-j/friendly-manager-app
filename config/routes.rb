@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   get "/me", to: "users#show" #stay log in
   delete "/logout", to: "sessions#destroy" #sig out
   post "/signup", to: "users#create" #create a new user
+  delete "/delete_admin_orders/:id", to: "orders#adminDeleteOrder" ##adminorders
+  patch "/update_admin_orders/:id", to: "orders#adminUpdateOrder" ##adminorders
+
 
   post "/log_in_create_store", to: "stores#create_single_store"
-
-
   get "/quantities/:num", to: "products#total_quantities"
   get "/today_oders", to: "orders#today_ors"
 

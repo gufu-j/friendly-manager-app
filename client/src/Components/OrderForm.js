@@ -66,8 +66,15 @@ function OrderForm({products}){
     }
 
      function onAddOrder(newOrder){
-
+                // const n = {...store, orders: [...store.orders, newOrder]}
+                // console.log(store)
                 setStore({...store, orders: [newOrder, ...store.orders]})  
+                // console.log(store) 
+                
+                // console.log(n)
+
+                // setStore({...store, orders: [...store.orders, newOrder]})  
+
       }
 
     

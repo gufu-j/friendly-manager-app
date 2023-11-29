@@ -2,10 +2,11 @@ import React from "react";
 import { OrderContext } from "./context/order";
 import { useContext } from "react";
 import { useState } from "react";
+import UpdateAdminOrder from "./UpdateAdminOrder";
 
 function OrdersAdmin(){
 
-    const {orders} = useContext(OrderContext)
+    const {orders, onDeleteOrder} = useContext(OrderContext)
 
     const [searchStoreN, setSearchStoreN] = useState("")
     const [searchProduct, setSearchProduct] = useState("")
@@ -19,16 +20,29 @@ function OrdersAdmin(){
         return  or.store_number === parseInt(searchStoreN)
         }
     )
-
-    console.log(filteredByStored)
-
     
     const filtered_orders = filteredByStored.filter( or => {
         return  or.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
         }
     )
+
     
-    const orderslist = filtered_orders.reverse().map((or) =>
+    const orderslist = filtered_orders.map((or) =>{
+
+    function handleDeleteClick(){
+        console.log(or.id)
+        fetch(`/delete_admin_orders/${or.id}` , {
+            method: "DELETE",
+        })
+        .then((r) => {
+                if(r.ok){
+                 onDeleteOrder(or)
+                } 
+            }
+        )
+    
+    }return(
+    
     <div key={or.id}>
         <div className="row">
                     <div className="column">
@@ -41,13 +55,16 @@ function OrdersAdmin(){
                                                 <p>Note: {or.note}</p>
                                             <p>{new Date(or.created_at).toDateString()}</p>
                                         <p>Created at {new Date(or.created_at).toLocaleTimeString()}</p>
-                                    {/* <button onClick={()=>handleDeleteClick(or.id)}>🚮</button> */}
+                                    <button onClick={handleDeleteClick} className="">🚮</button>
+                                    <UpdateAdminOrder order = {or}/>
                                 </div>
                             </div>
                         </div>
                     </div>
         </div>
     </div>
+    )
+        }
     )
 
     return(
@@ -62,3 +79,5 @@ function OrdersAdmin(){
 }
 
 export default OrdersAdmin
+
+

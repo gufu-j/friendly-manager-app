@@ -6,10 +6,11 @@ function Order(){
 
     const {store, setStore, user} = useContext(UserContext)
 
+    console.log(store)
 
     function handleUpdateReview(updatedOrder){
   
-        const storeOrders = store.orders.reverse().map((or) => {
+        const storeOrders = store.orders.map((or) => {
           if(or.id === updatedOrder.id){
             return updatedOrder
           }else{
@@ -20,7 +21,7 @@ function Order(){
       }
 
       function onDeleteOrder(order_deleted){
-        const updatedOrders = store.orders.reverse().filter((or) => or.id !== order_deleted.id)
+        const updatedOrders = store.orders.filter((or) => or.id !== order_deleted.id)
         setStore({...store, orders: updatedOrders})
     }
 
