@@ -3,17 +3,17 @@ import EditOrder from "./EditOrder";
 import "./Cards.css";
 
 
-function OrderCards({quantity, note, product_name, date, order, handleUpdateReview, onDeleteOrder}){
+function OrderCards({quantity, note, product_name, date, organized_order, handleUpdateReview, onDeleteOrder}){
 
     const currentDate = new Date(date).toDateString();
 
     function handleDeleteClick(){
-        fetch(`/orders/${order.id}`, {
+        fetch(`/orders/${organized_order.id}`, {
             method: "DELETE",
         })
         .then((r)=> {
             if(r.ok){
-                onDeleteOrder(order)
+                onDeleteOrder(organized_order)
             }
         })
     }
@@ -29,7 +29,7 @@ function OrderCards({quantity, note, product_name, date, order, handleUpdateRevi
                                       <p>Note: {note}</p>
                                          <p>{currentDate}</p>
                                          <button className="buttom" onClick={handleDeleteClick}>Delete</button> 
-                                            <EditOrder order={order} handleUpdateReview={handleUpdateReview} />
+                                            <EditOrder organized_order={organized_order} handleUpdateReview={handleUpdateReview} />
                             </div>
                         </div>
                     </div>

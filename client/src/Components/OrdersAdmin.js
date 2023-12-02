@@ -11,7 +11,6 @@ function OrdersAdmin(){
     const [searchStoreN, setSearchStoreN] = useState("")
     const [searchProduct, setSearchProduct] = useState("")
 
-
     const filteredByStored = orders.filter( or => {
         //if state value is empt string return true
             if(searchStoreN === ""){
@@ -22,7 +21,7 @@ function OrdersAdmin(){
     )
     
     const filtered_orders = filteredByStored.filter( or => {
-        return  or.product_name.toLowerCase().includes(searchProduct.toLocaleLowerCase())
+        return  or.product_name.toLowerCase().includes(searchProduct.toLowerCase())
         }
     )
 

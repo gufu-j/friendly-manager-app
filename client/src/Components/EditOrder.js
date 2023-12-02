@@ -4,7 +4,7 @@ import "./Modal.css";
 // import { UserContext } from "./context/user";
 // import { useContext } from "react";
 
-function EditOrder({order, handleUpdateReview}) {
+function EditOrder({organized_order, handleUpdateReview}) {
 
 
   // const {store, setStore} = useContext(UserContext)
@@ -12,9 +12,9 @@ function EditOrder({order, handleUpdateReview}) {
 
   const [box, setBox] = useState(false);
 
-  const [quantity, setQuantity] = useState(order.quantity)
+  const [quantity, setQuantity] = useState(organized_order.quantity)
 
-  const [note, setNote]= useState(order.note)
+  const [note, setNote]= useState(organized_order.note)
 
   let quantityInterger = parseInt(quantity)
 
@@ -26,7 +26,7 @@ function EditOrder({order, handleUpdateReview}) {
   
       function handleSubmit(e){
       e.preventDefault();
-      fetch(`/orders/${order.id}`,{
+      fetch(`/orders/${organized_order.id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

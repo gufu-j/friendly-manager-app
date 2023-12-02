@@ -15,9 +15,6 @@ function ProductProvider({children}){
     },[])
 
 
-    
-
-
     return(
         // add loggedIn to global and state
         <ProductContext.Provider value={{products, setProducts}}>

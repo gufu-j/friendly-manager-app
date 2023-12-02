@@ -4,12 +4,18 @@ import { useState } from "react";
 import { UserContext } from "./context/user";
 import { useContext } from "react";
 import "./OrderForm.css";
+import { ProductContext } from "./context/products";
+import {OrderContext} from "./context/order";
+import {StoreContext} from "./context/store";
 
 
-function OrderForm({products}){
 
+function OrderForm(){
 
-    const {store, setStore} = useContext(UserContext)
+    const {products} = useContext(ProductContext)
+    const {store, setStore} = useContext(UserContext) //store state for lower manager that logs in
+    const {orders, setOrders} = useContext(OrderContext)
+    const {stores, setStores} = useContext(StoreContext) //stores state for top manager that logs in
 
     let store_id
         if (store.length === 0){
@@ -46,6 +52,7 @@ function OrderForm({products}){
          .then((data) => {
             if(!data.errors){
                 onAddOrder(data)
+                onAddOrderToOrderArray(data)
                 setQuantity("")
                 setNote("")
                 setSelected(selected)
@@ -65,17 +72,29 @@ function OrderForm({products}){
 
     }
 
+    function onAddOrderToOrderArray(newOrder){
+        let newArr = orders
+        newArr.unshift(newOrder)    
+        setOrders(newArr)
+    }
+
+
      function onAddOrder(newOrder){
-                // const n = {...store, orders: [...store.orders, newOrder]}
-                // console.log(store)
-                setStore({...store, orders: [newOrder, ...store.orders]})  
-                // console.log(store) 
-                
-                // console.log(n)
+                setStore({...store, organized_orders: [newOrder, ...store.organized_orders]})    //store state for lower manager that logs in
 
-                // setStore({...store, orders: [...store.orders, newOrder]})  
-
+                const updatedStores = stores.map((s) => { 
+                    if(s.id === newOrder.store_number) {
+                       return ({ ...s, organized_orders: [newOrder, ...store.organized_orders] })
+                       } else {
+                       return s
+                       }
+                     }
+                   )
+                    setStores(updatedStores) //stores state for top manager that logs in
+  
       }
+
+
 
     
     return(

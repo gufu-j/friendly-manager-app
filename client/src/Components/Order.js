@@ -10,19 +10,19 @@ function Order(){
 
     function handleUpdateReview(updatedOrder){
   
-        const storeOrders = store.orders.map((or) => {
+        const storeOrders = store.organized_orders.map((or) => {
           if(or.id === updatedOrder.id){
             return updatedOrder
           }else{
             return or
           }
         })  
-        setStore({...store, orders: storeOrders})
+        setStore({...store, organized_orders: storeOrders,})
       }
 
       function onDeleteOrder(order_deleted){
-        const updatedOrders = store.orders.filter((or) => or.id !== order_deleted.id)
-        setStore({...store, orders: updatedOrders})
+        const updatedOrders = store.organized_orders.filter((or) => or.id !== order_deleted.id)
+        setStore({...store, organized_orders: updatedOrders})
     }
 
 
@@ -32,7 +32,7 @@ function Order(){
             <h1>Orders</h1>
             {user.admin === true ? null :  
             <div className="background_two">
-                { store.length === 0? null : store.orders.map((e) => 
+                { store.length === 0? null : store.organized_orders.map((e) => 
                 <OrderCards 
                 key ={e.id}
                 note ={e.note}
@@ -40,7 +40,7 @@ function Order(){
                 quantity ={e.quantity}
                 date = {e.created_at}
                 store = {store}
-                order = {e}
+                organized_order= {e}
                 setStore = {setStore}
                 handleUpdateReview = {handleUpdateReview}
                 onDeleteOrder = {onDeleteOrder}

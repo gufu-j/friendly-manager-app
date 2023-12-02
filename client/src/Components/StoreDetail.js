@@ -11,10 +11,11 @@ function StoreDetail(){
 
     const singleStore = stores.find((el) => el.id === parseInt(`${id}`))
 
+    console.log(singleStore)
     return(
         <div>
             <h1>Orders from Store {id}</h1>
-            {singleStore? singleStore.orders.map((e) => 
+            {singleStore? singleStore.organized_orders.map((e) => 
             <div key={e.id}>
                 <div className="row">
                  <div className="column">

@@ -34,6 +34,9 @@ function NavBar(){
                                 <Link to="/products">
                                 <button  >Products</button>
                                 </Link>
+                                    <Link to="/total_products">
+                                    <button> Todays' Orders </button>
+                                    </Link>
                                     <button   onClick={handleLogout}> Logout </button>
                     </div>
                         :

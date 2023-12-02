@@ -13,6 +13,10 @@ class OrderSerializer < ActiveModel::Serializer
     object.store.id
   end
 
+  # def reversed_orders_back_end
+  #   Order.order(:created_at).reverse
+  # end
+
 
   belongs_to :store
   belongs_to :product

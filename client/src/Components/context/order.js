@@ -21,26 +21,36 @@ function OrderProvider({children}){
 
 
     const onUpdateOrder = (updatedOrder) => {
-        const updatedStores = stores.map((s) => { 
-            if(s.id === updatedOrder.store_number) {
-               return ({ ...s, orders: [...s.orders, updatedOrder] })
-               } else {
-               return s
-               }
-             }
-           )
-           setStores(updatedStores)
 
-           const updatedOrders = orders.map((order) => {
-            if (order.id === updatedOrder.id) {
-              return updatedOrder;
-            } else {
-              return order;
-            }
-          });
-          setOrders(updatedOrders);
+      const storeOrders = stores.find(s => s.id === updatedOrder.store_number).orders
 
+      const updatedOrdersFromStoresArray = storeOrders.map((or) => {
+        if(or.id === updatedOrder.id){
+          return updatedOrder
+        }else{
+          return or;
+        }
+      });
+  
+     const updatedStores = stores.map((s) => {
+        if(s.id === updatedOrder.store_number){
+          return {...s, orders: updatedOrdersFromStoresArray}
+          }else{
+          return s;
+        }
+       }
+      )
 
+      const updatedOrders = orders.map((or) => {
+        if(or.id === updatedOrder.id){
+          return updatedOrder
+        }else{
+          return or;
+        }
+      });
+
+      setStores(updatedStores)
+      setOrders(updatedOrders);
     }
 
 

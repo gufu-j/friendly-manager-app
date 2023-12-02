@@ -7,7 +7,6 @@ function UserProvider({children}){
     const [user, setUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false) //add loggedIn flag
     const [store, setStore] = useState([]);
-    const [stores, setStores] = useState([]);
 
 
     useEffect(() => {
@@ -46,10 +45,6 @@ function UserProvider({children}){
         fetch(`/stores/${user.store.id}`)
         .then((r) => r.json())
         .then((r) => setStore(r))
-        }else{
-        fetch(`/stores`)
-        .then((r) => r.json())
-        .then((r) => setStores(r))
         }
     },[loggedIn, user])
   
@@ -57,7 +52,7 @@ function UserProvider({children}){
 
     return(
         // add loggedIn to global and state
-        <UserContext.Provider value={{user, login, logout, signup, loggedIn, setUser, store, setStore, stores}}>
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn, setUser, store, setStore}}>
             {children}
         </UserContext.Provider>
     );
