@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./context/user";
 import { useNavigate } from "react-router-dom";
+import "./LoginForm.css";
+
 
 
 function Login(){
-
-    //Login section comes mostly from Prof. Nancy's lecture as reference.
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -46,15 +46,15 @@ function Login(){
     return(
         <>
         <div>
-            <form onSubmit={handleSubmit}>
-                <h1> Login </h1>
+            <form onSubmit={handleSubmit} className="login-form">
+                <h1 className="center_text"> User Account </h1>
                     <input type= "text" id= "username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
                         <input type= "password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
-                            <button type="submit"> Login </button>
+                            <button type="submit" className="button1"> Login </button>
             </form>
         </div>
             {errors.map((err) => (
-                <li style={{ color: "red" }} key={err}>
+                <li style={{ color: "red" }} key={err} className="center_text">
                     {err}
                 </li>
             ))}

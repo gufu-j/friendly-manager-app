@@ -9,19 +9,6 @@ function DailyProduct(){
 
     const {orders} = useContext(OrderContext)
 
-
-    
-//    const ulta = orders.sort(function(a, b) {
-//       var keyA = new Date(a.created_at),
-//         keyB = new Date(b.created_at);
-//       // Compare the 2 dates
-//       if (keyA < keyB) return -1;
-//       if (keyA > keyB) return 1;
-//       return 0;
-//     });
-    
-//     console.log(ulta);
-
     const moment = require("moment")
 
     const filteredDailyOrders = orders.filter(item => {

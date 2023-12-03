@@ -21,7 +21,8 @@ function Home(){
     } else {
         return (
             <div>
-                chingatumadrebato
+                <h1 className="center_image"> Friendly Manager App </h1>
+                <img src={ "https://etimg.etb2bimg.com/thumb/msid-99832590,imgsize-46068,width-1200,height=765,overlay-ethrme/news/industry/april-theme-roundup-shaping-the-future-of-work-with-new-age-performance-management-ex-strategies.jpg"} height={500} className="center_image" alt=""/>
             </div>
         )
     }

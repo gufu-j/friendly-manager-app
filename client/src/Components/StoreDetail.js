@@ -14,7 +14,7 @@ function StoreDetail(){
     console.log(singleStore)
     return(
         <div>
-            <h1>Orders from Store {id}</h1>
+            <h1 className="center_text">Orders from Store {id}</h1>
             {singleStore? singleStore.organized_orders.map((e) => 
             <div key={e.id}>
                 <div className="row">

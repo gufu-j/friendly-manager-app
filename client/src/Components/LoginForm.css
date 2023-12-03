@@ -1,0 +1,27 @@
+.login-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-form input[type='text'],
+  .login-form input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  
+  .login-form input[type='submit'] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .login-form {
+      width: 100%;
+    }
+  }
