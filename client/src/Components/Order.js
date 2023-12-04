@@ -1,28 +1,50 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/user";
 import OrderCards from "./OrderCards";
+import { OrderContext } from "./context/order";
+
 
 function Order(){
 
     const {store, setStore, user} = useContext(UserContext)
+    const {orders, setOrders} = useContext(OrderContext)
+
 
     console.log(store)
 
     function handleUpdateReview(updatedOrder){
   
-        const storeOrders = store.organized_orders.map((or) => {
+      //lower manager orders' update trough his/her respective store after updating 
+        const storeOrdersLowManager = store.organized_orders.map((or) => {
           if(or.id === updatedOrder.id){
             return updatedOrder
           }else{
             return or
           }
         })  
-        setStore({...store, organized_orders: storeOrders,})
+        setStore({...store, organized_orders: storeOrdersLowManager,})
+
+        //top manager orders' update of spefic orders from low managers.
+        const ordersTopManager = orders.map((or) => {
+          if (or.id === updatedOrder.id) {
+            return updatedOrder
+          }else{
+            return or
+          }
+        })
+        setOrders(ordersTopManager)
+        
       }
 
       function onDeleteOrder(order_deleted){
-        const updatedOrders = store.organized_orders.filter((or) => or.id !== order_deleted.id)
-        setStore({...store, organized_orders: updatedOrders})
+        //lower manager update after deleting 
+        const updatedOrdersLowerManager = store.organized_orders.filter((or) => or.id !== order_deleted.id)
+        setStore({...store, organized_orders: updatedOrdersLowerManager})
+
+        //top manager orders update after deleting
+        const updatedOrdersTopManager = orders.filter((or) => or.id !== order_deleted.id);
+        setOrders(updatedOrdersTopManager)
+        
     }
 
 
