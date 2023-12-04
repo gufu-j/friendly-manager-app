@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { OrderContext } from "./context/order";
 import OrdersPerDay from "./OrdersPerDay";
 import TotalDailyOrders from "./TotalDailyOrders";
+import './DailyProducts.css';
+
 
 
 function DailyProduct(){
@@ -11,7 +13,15 @@ function DailyProduct(){
 
     const moment = require("moment")
 
-    const filteredDailyOrders = orders.filter(item => {
+    const filteredDailyOrders = orders.sort(function (a, b) {
+        if (a.name < b.name) {
+         return -1;
+         }
+        if (a.name > b.name) {
+         return 1;
+         }
+         return 0;
+         }).filter(item => {
         const createdAt = moment(item.created_at)
         const startOfToday = moment().startOf('day')
         const endOfToday = moment().endOf('day')
@@ -67,14 +77,17 @@ function DailyProduct(){
             <div>
                 <div>
                     <h1>Supply to each store</h1>
+                    <p>Note: Products are organized alphabethically</p>
+                    
                     {mappedDailyOrders}
+                    
                 </div> 
                 <div> 
                     <h1>Manufacture or Pack the following total of orders:</h1>
-                    {mappedTotalDailyOrders}
+                    <p>Note: Products are organized alphabethically</p>
+                         {mappedTotalDailyOrders}
                 </div>
             </div>
-
                 : 
                 null
                 }

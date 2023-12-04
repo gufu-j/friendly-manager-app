@@ -6,7 +6,7 @@ function TotalDailyOrders({quantity, productName, or}){
 
     return(
         <ul>
-        <li key={or.quantity}> {productName} : {quantity} </li>
+        <li key={or.quantity}> {productName} : {quantity} units ☐ </li>
         </ul>
     )
 }

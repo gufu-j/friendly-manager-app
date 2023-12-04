@@ -48,20 +48,6 @@ class OrdersController < ApplicationController
         render json: order
     end
 
-    # def today_ors
-    #     today = Orders.find(:all, conditions: { :created_at => Date.today...Date.today + 1})
-    #     render json: today
-    # end
-
-
-    # def total_quantities
-    #     orders = Order.all
-    #    order = orders.find_by(id: params[:num].to_i)
-    #     #quantities = orders.map{|order| order.quantity}
-    #     # total = orders.select{|order| order.quantity == 20}
-    #    render json: order
-    # end
-
    private 
 
    def order_params

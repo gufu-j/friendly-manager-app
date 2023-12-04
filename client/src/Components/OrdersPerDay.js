@@ -8,9 +8,8 @@ function OrdersPerDay({quantity, productName, or, store_name}){
 
     return(
             <ul>
-            <li key={or.id}> {productName} : {quantity} units for {store_name}</li>
+            <li key={or.id}> {productName} : {quantity} units for {store_name} ☐ </li>
             </ul>
-    
     )
 }
 

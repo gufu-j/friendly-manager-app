@@ -32,7 +32,15 @@ function ProductsAdmin(){
     }
 
 
-    let product_list = products.map((p) =>
+    let product_list = products.sort(function (a, b) {
+        if (a.name < b.name) {
+         return -1;
+         }
+        if (a.name > b.name) {
+         return 1;
+         }
+         return 0;
+         }).map((p) =>
 
         <div key={p.id}>
             <div className="row_admin">
@@ -106,7 +114,8 @@ function ProductsAdmin(){
                 <button type="submit" id="submitBtn" className="button" > add product </button>
                 {errors}
             </form>
-               {product_list}
+            <p>Note: Products are organized alphabethically</p>
+            {product_list}
         </div>
     )
 }
