@@ -35,21 +35,13 @@ class ProductsController < ApplicationController
       # end
     
       def create
-        @product = Product.create!(product_params)
-
-         respond_to do |format|
-            
-            if @product
-                ProductMailer.with(product: @product).new_product_email.deliver_now
-                format.html { redirect_to(@product, notice: 'Product was successfully created.') }
-                format.json { render json: @product, status: :created, location: @product }
-            else
-                format.html { render action: 'new' }
-                format.json { render json: @product.errors, status: :unprocessable_entity }
+        product = Product.create!(product_params)
+        users = User.all 
+        users.each do | user |
+         ProductMailer.with(product: product, user: user).new_product_email.deliver_later
+        end
+        render json: product, status: :created
     
-            end
-
-          end
       end
 
       # def destroy
