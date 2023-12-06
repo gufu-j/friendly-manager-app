@@ -7,7 +7,7 @@ function Business({store}){
     return(
         <div className="containerTwo">
            <div className="cardLowManager">
-                <NavLink style={{paddingLeft: 13, textDecoration: 'none'}} to={"/orders"}>
+                <NavLink style={{paddingLeft: 13, textDecoration: 'none'}} to={"/orders/test"}>
                     <div className="container">
                         <h1 className="store-name"> Home Freepot {store.id}</h1>
                         <p> Location : {store.location}</p>

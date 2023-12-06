@@ -38,7 +38,7 @@ function App() {
                   <Routes>
                     <Route exact path="/login" element={ <Login /> } />
                     {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
-                    <Route exact path="/orders" element={<Order />}/>
+                    <Route exact path="/orders/test" element={<Order />}/>
                     <Route exact path="/make_orders" element={<OrderForm/>}/>
                     <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
                     <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
