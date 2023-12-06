@@ -113,5 +113,16 @@ Rails.application.configure do
 
 
   # config/environments/production.rb
+  config.action_mailer.delivery_method = :smtp
+
+# SMTP settings for gmail
+# config.action_mailer.smtp_settings = {
+#   :address              => "smtp.gmail.com",
+#   :port                 => 587,
+#   :user_name            => "guatemaladiegojose@gmail.com",
+#   :password             => "dpiy suzm jmhw jngf",
+#   :authentication       => "plain",
+#   :enable_starttls_auto => true
+# }
 
 end
