@@ -15,7 +15,9 @@ function UpdateAdminOrder({order}){
     const [quantity, setQuantity] = useState(order.quantity)
   
     const [note, setNote]= useState(order.note)
-  
+
+    const [errors, setErrors] = useState([])
+
     let quantityInterger = parseInt(quantity)
   
     const toggleModal = () => {
@@ -23,8 +25,7 @@ function UpdateAdminOrder({order}){
     };
   
   
-    
-        function handleSubmit(e){
+    function handleSubmit(e){
         e.preventDefault();
         fetch(`/update_admin_orders/${order.id}`,{
               method: "PATCH",
@@ -38,7 +39,18 @@ function UpdateAdminOrder({order}){
               }),
           })
           .then((r) => r.json())
-          .then((updatedOrder) => onUpdateOrder(updatedOrder))
+          .then((updatedOrder) =>{
+          if(!updatedOrder.errors){
+            onUpdateOrder(updatedOrder)
+          } else {
+            const errorLis = updatedOrder.errors.map((e) => (
+              <div key={e}>
+                 <ul style={{color: "red"}}>{e}</ul>
+              </div>
+             ))
+             setErrors(errorLis)
+          }
+        })
       }
   
   
@@ -75,6 +87,7 @@ function UpdateAdminOrder({order}){
                       placeholder="note" 
                       />
                       <button type="submit"  className="close-modal-one" > Update Review </button>
+                      {errors}
                      </form> 
                    </div>
                     <button className="close-modal-two" onClick={toggleModal}>

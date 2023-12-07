@@ -104,3 +104,35 @@
   background-color: #aa1504; /* Green */
   color: white;
 }
+
+
+/* deleting btn style */
+
+.button{
+  background-color: #555555; 
+  color: rgb(255, 255, 255);
+  padding: 1px 1px;
+}
+.button {
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: #aa0404; /* Green */
+  color: white;
+}
+
+/* editing button */
+
+.buttonE{
+  background-color: #555555; 
+  color: rgb(255, 255, 255);
+  padding: 1px 1px;
+}
+.buttonE {
+  transition-duration: 0.4s;
+}
+.buttonE:hover {
+  background-color: #25aa04; /* Green */
+  color: white;
+}
+

@@ -9,7 +9,6 @@ import { StoreProvider } from './context/store';
 import { OrderProvider } from './context/order';
 import { ProductProvider } from './context/products';
 
-
 import Home from './Home';
 import Login from './Login';
 // import SignUp from './SignUp';
@@ -30,7 +29,6 @@ function App() {
     <div>
     <div>
       <UserProvider>
-
         <StoreProvider>
           <OrderProvider>
             <ProductProvider>

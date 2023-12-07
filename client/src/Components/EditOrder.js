@@ -6,9 +6,7 @@ import "./Modal.css";
 
 function EditOrder({organized_order, handleUpdateReview}) {
 
-
   // const {store, setStore} = useContext(UserContext)
-
 
   const [box, setBox] = useState(false);
 
@@ -16,15 +14,15 @@ function EditOrder({organized_order, handleUpdateReview}) {
 
   const [note, setNote]= useState(organized_order.note)
 
+  const [errors, setErrors] = useState([])
+
   let quantityInterger = parseInt(quantity)
 
   const toggleModal = () => {
     setBox(!box);
   };
 
-
-  
-      function handleSubmit(e){
+    function handleSubmit(e){
       e.preventDefault();
       fetch(`/orders/${organized_order.id}`,{
             method: "PATCH",
@@ -38,9 +36,24 @@ function EditOrder({organized_order, handleUpdateReview}) {
             }),
         })
         .then((r) => r.json())
-        .then((updatedOrder) => handleUpdateReview(updatedOrder))
+        .then((updatedOrder) =>{
+          if(!updatedOrder.errors){
+            handleUpdateReview(updatedOrder)
+            if(organized_order.quantity !== updatedOrder.quantity){
+            alert (`${organized_order.quantity} has been updated to ${updatedOrder.quantity}` );
+            }else{
+              alert (`${organized_order.note} has been updated to ${updatedOrder.note}` );
+            }
+          } else {
+            const errorLis = updatedOrder.errors.map((e) => (
+              <div key={e}>
+                 <ul style={{color: "red"}}>{e}</ul>
+              </div>
+             ))
+             setErrors(errorLis)
+          }
+        })
     }
-
 
     if(box) {
       document.body.classList.add('active-modal')
@@ -48,10 +61,9 @@ function EditOrder({organized_order, handleUpdateReview}) {
       document.body.classList.remove('active-modal')
     }
 
-
   return (
     <>
-      <button onClick={toggleModal} className="buttom">
+      <button onClick={toggleModal} className="buttonE">
         Edit
       </button>
         {box && (
@@ -76,6 +88,7 @@ function EditOrder({organized_order, handleUpdateReview}) {
                     placeholder="note" 
                     />
                     <button type="submit"  className="close-modal-one" > Update Review </button>
+                    {errors}
                    </form> 
                  </div>
                   <button className="close-modal-two" onClick={toggleModal}>

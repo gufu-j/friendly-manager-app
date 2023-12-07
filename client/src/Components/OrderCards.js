@@ -1,6 +1,8 @@
 import React from "react";
 import EditOrder from "./EditOrder";
 import "./Cards.css";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 
 function OrderCards({quantity, note, product_name, date, organized_order, handleUpdateReview, onDeleteOrder}){
@@ -8,7 +10,29 @@ function OrderCards({quantity, note, product_name, date, organized_order, handle
     // const currentDate = new Date(date).toDateString();
      
 
-    function handleDeleteClick(){
+    // function handleDeleteClick(){
+
+    //     fetch(`/orders/${organized_order.id}`, {
+    //         method: "DELETE",
+    //     })
+    //     .then((r)=> {
+    //         if(r.ok){
+    //             onDeleteOrder(organized_order)
+    //         }
+    //     })
+
+        // console.log(typeof(e))
+
+        // if( typeof(e) === "object"){
+        //     alert("are you sure you want to delete this app?");
+
+         // }
+        // }
+
+    const dataCardIsCreated = new Date(date).toDateString();
+    const today = new Date().toDateString();
+
+    const Delete = async () => {
         fetch(`/orders/${organized_order.id}`, {
             method: "DELETE",
         })
@@ -17,11 +41,27 @@ function OrderCards({quantity, note, product_name, date, organized_order, handle
                 onDeleteOrder(organized_order)
             }
         })
+
+       
     }
 
-    const dataCardIsCreated = new Date(date).toDateString();
-    const today = new Date().toDateString();
+  const submit = () => {
 
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => Delete()
+        },
+        {
+          label: 'No',
+          //onClick: () => alert('Click No')
+        }
+      ]
+    });
+  }
 
     return(
             <div className="row">
@@ -35,7 +75,7 @@ function OrderCards({quantity, note, product_name, date, organized_order, handle
                                          <p>{dataCardIsCreated}</p>
                                          {today === dataCardIsCreated? 
                                          <div>
-                                         <button className="buttom" onClick={handleDeleteClick}>Delete</button>
+                                         <button className="button" onClick={submit}>Delete</button>
                                          <EditOrder organized_order={organized_order} handleUpdateReview={handleUpdateReview} />
                                          </div>
                                          :

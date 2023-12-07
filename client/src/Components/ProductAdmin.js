@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { ProductContext } from "./context/products";
 import { useContext } from "react";
 
-
 import './Product.css';
 import EditProductAdmin from "./EditProductsAdmin";
-
 
 
 
@@ -17,8 +15,6 @@ function ProductsAdmin(){
 
     const [newProduct, setNewProduct] = useState("")
     const [errors, setErrors] = useState([])
-
-    console.log(products)
 
     function handleUpdate(updatedProduct){
         const updatedProducts = products.map((item) => {
@@ -78,8 +74,6 @@ function ProductsAdmin(){
                 onAddProduct(data)
                 setNewProduct("")
                 // alert (`${data.name} has been added` );
-                console.log(data)
-                console.log(products)
             }else{
                 const errorList = data.errors.map((e) => (
                     <div key={e}>

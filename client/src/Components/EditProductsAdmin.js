@@ -6,8 +6,7 @@ function EditProductAdmin({product, handleUpdate}){
 
     const [productName, setProductName]= useState(product.name)
 
-
-
+    const [errors, setErrors] = useState([])
 
 
     function handleSubmit(e){
@@ -23,14 +22,20 @@ function EditProductAdmin({product, handleUpdate}){
               }),
           })
           .then((r) => r.json())
-          .then((updatedProduct) => {
-            
-          alert (`${product.name} has been updated to ${productName}, please notify managers
-          from $ ` );
-          handleUpdate(updatedProduct)
-         }
-        )
-      }
+          .then( (updatedProduct) =>{
+            if(!updatedProduct.errors){
+              handleUpdate(updatedProduct)
+              alert (`${product.name} has been updated to ${productName}, please notify managersfrom $ ` );
+            } else {
+              const errorLis = updatedProduct.errors.map((e) => (
+                <div key={e}>
+                   <ul style={{color: "red"}}>{e}</ul>
+                </div>
+               ))
+               setErrors(errorLis)
+            }
+          })
+        }     
 
      const [editBox, setEditBox] = useState(false);
 
@@ -44,13 +49,9 @@ function EditProductAdmin({product, handleUpdate}){
         document.body.classList.remove('active-modal')
       }
 
-
-
-
     return(
         <div>
-            
-            <>
+  <>
       <button onClick={toggleModal} className="btn_product_admin">
       ✍
       </button>
@@ -69,6 +70,7 @@ function EditProductAdmin({product, handleUpdate}){
                     placeholder="product"     
                     />
                     <button type="submit"  className="close-modal-one" > Update Review </button>
+                    {errors}
                    </form> 
                  </div>
                   <button className="close-modal-two" onClick={toggleModal}>
