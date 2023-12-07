@@ -95,14 +95,13 @@ function OrderForm(){
       }
 
     return(
+        <div className="container">
         <div className="form-box">
             <div className="card_two">
                 <div>
                     <form onSubmit={handleSubmitNewCake}>
                         <div className="field1">
                             <h1> Add an order </h1>
-                                <input type= "text" id= "quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="quantity"/>
-                                    <input type= "text" id= "note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="note"/>
                                     <p>Note: Products are organized alphabethically</p>
                                      <select value={selected} onChange={(e) => setSelected(e.target.value)} className="selection"> 
                                         <option value=""> Pick a Product </option>
@@ -117,18 +116,21 @@ function OrderForm(){
                                              }).map((e) => 
                                         <option key={e.id} value={e.id}> {e.name} </option> 
                                          )}
-                            </select>
+                                     </select>
+                                     <input type= "text" id= "quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="quantity"/>
+                             <input type= "text" id= "note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="note"/>
                         </div>
                         <button type="submit" id="submitBtn" className="button_one" > add order </button>
                     </form>
-                    <Link to='/orders'>
-                            <button  className="button_two" >check your orders</button>
-                    </Link>
                 </div>
+                <Link to='/orders'>
+                            <button  className="button_two" >check your orders</button>
+                </Link>
              </div>
 
             {errors}
         </div>
+    </div>
     )
 }
 

@@ -5,7 +5,8 @@ import "./Cards.css";
 
 function OrderCards({quantity, note, product_name, date, organized_order, handleUpdateReview, onDeleteOrder}){
 
-    const currentDate = new Date(date).toDateString();
+    // const currentDate = new Date(date).toDateString();
+     
 
     function handleDeleteClick(){
         fetch(`/orders/${organized_order.id}`, {
@@ -18,6 +19,10 @@ function OrderCards({quantity, note, product_name, date, organized_order, handle
         })
     }
 
+    const dataCardIsCreated = new Date(date).toDateString();
+    const today = new Date().toDateString();
+
+
     return(
             <div className="row">
                 <div className="column">
@@ -27,9 +32,15 @@ function OrderCards({quantity, note, product_name, date, organized_order, handle
                                 <h3>{product_name}</h3>
                                     <p>Quantity:  {quantity}</p>
                                       <p>Note: {note}</p>
-                                         <p>{currentDate}</p>
-                                         <button className="buttom" onClick={handleDeleteClick}>Delete</button> 
-                                            <EditOrder organized_order={organized_order} handleUpdateReview={handleUpdateReview} />
+                                         <p>{dataCardIsCreated}</p>
+                                         {today === dataCardIsCreated? 
+                                         <div>
+                                         <button className="buttom" onClick={handleDeleteClick}>Delete</button>
+                                         <EditOrder organized_order={organized_order} handleUpdateReview={handleUpdateReview} />
+                                         </div>
+                                         :
+                                         null
+                                         }
                             </div>
                         </div>
                     </div>

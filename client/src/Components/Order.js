@@ -9,9 +9,6 @@ function Order(){
     const {store, setStore, user} = useContext(UserContext)
     const {orders, setOrders} = useContext(OrderContext)
 
-
-    console.log(store)
-
     function handleUpdateReview(updatedOrder){
   
       //lower manager orders' update trough his/her respective store after updating 
@@ -47,6 +44,7 @@ function Order(){
         
     }
 
+    
 
 
     return(
