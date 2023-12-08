@@ -25,7 +25,7 @@ function EditProductAdmin({product, handleUpdate}){
           .then( (updatedProduct) =>{
             if(!updatedProduct.errors){
               handleUpdate(updatedProduct)
-              alert (`${product.name} has been updated to ${productName}, please notify managersfrom $ ` );
+              alert (`"${product.name}" has been updated to "${productName}", please notify managersfrom ` );
             } else {
               const errorLis = updatedProduct.errors.map((e) => (
                 <div key={e}>

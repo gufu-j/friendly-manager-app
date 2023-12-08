@@ -42,6 +42,11 @@ function UpdateAdminOrder({order}){
           .then((updatedOrder) =>{
           if(!updatedOrder.errors){
             onUpdateOrder(updatedOrder)
+              if(order.quantity !== updatedOrder.quantity){
+                alert (`${order.quantity} has been updated to ${updatedOrder.quantity}` );
+                }else{
+                  alert (`"${order.note}" has been updated to "${order.note}"` );
+                }
           } else {
             const errorLis = updatedOrder.errors.map((e) => (
               <div key={e}>

@@ -42,7 +42,7 @@ function EditOrder({organized_order, handleUpdateReview}) {
             if(organized_order.quantity !== updatedOrder.quantity){
             alert (`${organized_order.quantity} has been updated to ${updatedOrder.quantity}` );
             }else{
-              alert (`${organized_order.note} has been updated to ${updatedOrder.note}` );
+              alert (`"${organized_order.note}" has been updated to "${updatedOrder.note}"` );
             }
           } else {
             const errorLis = updatedOrder.errors.map((e) => (
@@ -50,6 +50,7 @@ function EditOrder({organized_order, handleUpdateReview}) {
                  <ul style={{color: "red"}}>{e}</ul>
               </div>
              ))
+             
              setErrors(errorLis)
           }
         })

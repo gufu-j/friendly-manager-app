@@ -41,6 +41,8 @@ function OrderForm(){
             store_id: store_id
             
          }
+
+         
          fetch("/orders",{
             method: "POST",
             headers: {
@@ -57,8 +59,7 @@ function OrderForm(){
                 setNote("")
                 setSelected(selected)
                 console.log(data)
-                alert (`${data.product_name} has been ordered ` );
-                
+                alert (`${data.product_name} has been ordered ` );                
             }else{
                 const errorList = data.errors.map((e) => (
                     <div key={e}>
