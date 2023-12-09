@@ -11,7 +11,7 @@ function Businesses(){
     let mapped_stores = stores.map((s) =>
 
     <div key={s.id}>
-    <NavLink to={`/stores/${s.id}`} style={{ textDecoration: 'none'}} >
+    <NavLink to={`/stores_all/${s.id}`} style={{ textDecoration: 'none'}} >
         <div className="row_p">
             <div className="column_p">
                     <div className="content_p">
