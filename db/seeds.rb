@@ -42,7 +42,7 @@ order_one = Order.create!(quantity: 20, note: "n/a", store_id: store_one.id, pro
 order_one_second = Order.create!(quantity: 10, note: "4 inch, aircarft nozzle assembled", store_id: store_one.id, product_id: product_one_second.id )
 order_one_third = Order.create!(quantity: 55, note: "blue moon", store_id: store_one.id, product_id: product_one_third.id )
 order_two = Order.create!(quantity: 10, note: "n/a", store_id: store_two.id, product_id: product_two.id )
-order_three = Order.create!(quantity: 11, note: "n/a", store_id: store_three.id, product_id: product_three.id )
+# order_three = Order.create!(quantity: 11, note: "n/a", store_id: store_three.id, product_id: product_three.id )
 order_four = Order.create!(quantity: 16, note: "n/a",  store_id: store_four.id, product_id: product_four.id )
 
 puts("done seeding")
