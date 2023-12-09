@@ -3,10 +3,12 @@ import { OrderContext } from "./context/order";
 import { useContext } from "react";
 import { useState } from "react";
 import UpdateAdminOrder from "./UpdateAdminOrder";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function OrdersAdmin(){
 
-    const {orders, onDeleteOrder} = useContext(OrderContext)
+    const {orders, onDeleteOrder, setOrders} = useContext(OrderContext)
 
     const [searchStoreN, setSearchStoreN] = useState("")
     const [searchProduct, setSearchProduct] = useState("")
@@ -66,12 +68,44 @@ function OrdersAdmin(){
         }
     )
 
+    const Delete = async () => {
+        fetch(`/delete_all_orders` , {
+            method: "DELETE",
+        })
+        .then((r) => {
+                if(r.ok){
+                 setOrders([])
+                } 
+            }
+        )
+    }
+
+    const submit = () => {
+        confirmAlert({
+          title: 'Confirm to submit',
+          message: 'Are you sure you want to do this? All data will be deleted from the database and reset',
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: () => Delete()
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
+      }
+    
     return(
         <div>
                 <h1>All Stores' Orders</h1>
                     <label className="label"> Search For Store  </label>
+                        
                         <input type="text" className="input" placeholder="Store Number " onChange={(e)=>setSearchStoreN(e.target.value)}/>
                          <input type="text" className="input" placeholder="Product Name" onChange={(e)=>setSearchProduct(e.target.value)}/>
+                         <div>
+                         <button onClick={submit} className="buttonS" >delete all orders</button>
+                         </div>
                 {orderslist}
         </div>
     )

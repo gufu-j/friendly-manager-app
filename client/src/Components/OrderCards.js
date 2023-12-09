@@ -7,28 +7,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function OrderCards({quantity, note, product_name, date, organized_order, handleUpdateReview, onDeleteOrder}){
 
-    // const currentDate = new Date(date).toDateString();
-     
-
-    // function handleDeleteClick(){
-
-    //     fetch(`/orders/${organized_order.id}`, {
-    //         method: "DELETE",
-    //     })
-    //     .then((r)=> {
-    //         if(r.ok){
-    //             onDeleteOrder(organized_order)
-    //         }
-    //     })
-
-        // console.log(typeof(e))
-
-        // if( typeof(e) === "object"){
-        //     alert("are you sure you want to delete this app?");
-
-         // }
-        // }
-
     const dataCardIsCreated = new Date(date).toDateString();
     const today = new Date().toDateString();
 

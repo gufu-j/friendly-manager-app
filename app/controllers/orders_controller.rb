@@ -48,6 +48,13 @@ class OrdersController < ApplicationController
         render json: order
     end
 
+    def delete_all
+        orders = Order.all
+        orders.destroy_all
+        head :no_content
+    end
+
+
    private 
 
    def order_params

@@ -124,7 +124,7 @@ function OrderForm(){
                         <button type="submit" id="submitBtn" className="button_one" > add order </button>
                     </form>
                 </div>
-                <Link to='/orders'>
+                <Link to='/business_orders'>
                             <button  className="button_two" >check your orders</button>
                 </Link>
              </div>

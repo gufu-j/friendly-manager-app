@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get "/quantities/:num", to: "products#total_quantities"
   get "/today_oders", to: "orders#today_ors"
 
+  delete "/delete_all_orders", to: "orders#delete_all"
+
 
 end

@@ -23,7 +23,7 @@ d = User.create!(username: "Jon", password: "123", password_confirmation: "123",
 
 store_one = Store.create!(phone_number: "123-453-543", location: "Bay Shore, Wall Street 2, NY 11606", user_id: a.id)
 store_two = Store.create!(phone_number: "456-654-3424", location: "Westberry, fifth av 89, NY 11514", user_id: b.id)
-store_three = Store.create!(phone_number: "453-654-343", location: "1 ave Sur, San Francisco Gotera", user_id: c.id)
+# store_three = Store.create!(phone_number: "453-654-343", location: "1 ave Sur, San Francisco Gotera", user_id: c.id)
 store_four = Store.create!(phone_number: "765-435-675", location: "Westbabylon, Ave 5 189, NY 11704", user_id: d.id)
 
 # product_cero = Product.create!(name: "Select a Product")
