@@ -41,7 +41,7 @@ function App() {
                     <Route exact path="/make_orders" element={<OrderForm/>}/>
                     <Route exact path= "/stores/:id" element={ <StoreDetail/> }/>
                     <Route exact path= "/admin_orders" element={ <OrdersAdmin/> }/>
-                    <Route exact path= "/products" element={<ProductsAdmin/>} />
+                    <Route exact path= "api/products" element={<ProductsAdmin/>} />
                     <Route exact path= "/total_products" element={<DailyProduct/>} />
                     <Route exact path="/" element={ <Home />} />
                   </Routes>

@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   delete "/delete_all_orders", to: "orders#delete_all"
 
 
+
+
 end
