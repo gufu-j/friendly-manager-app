@@ -9,7 +9,7 @@ function ProductProvider({children}){
     const [products, setProducts] = useState([]);
 
     useEffect(() =>{
-        fetch(`/products`)
+        fetch(`/api/products`)
         .then((r) => r.json())
         .then((r) => setProducts(r))
     },[])
