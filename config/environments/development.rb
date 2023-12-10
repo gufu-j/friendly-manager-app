@@ -69,16 +69,20 @@ Rails.application.configure do
 
 
   
-config.action_mailer.delivery_method = :smtp
+# config.action_mailer.delivery_method = :smtp
 
 # SMTP settings for gmail
+config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => "guatemaladiegojose@gmail.com",
-  :password             => "dpiy suzm jmhw jngf",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "example.com",
+  user_name: ENV["EMAIL_ACCOUNT"],
+  password: ENV["EMAIL_PASSWORD"],
+  authentication: "plain",
+  enable_starttls: true,
+  open_timeout: 5,
+  read_timeout: 5
 }
 
 end
