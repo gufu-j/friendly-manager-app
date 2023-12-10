@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:index, :show] #, :show, :create
   resources :orders, only: [:index, :show, :create, :destroy, :update]
-  resources :products, only: [:show, :create, :destroy, :update]
+  resources :products, only: [:index, :show, :create, :destroy, :update]
 
 
   post "/login", to: "sessions#create" #check user
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   delete "/delete_all_orders", to: "orders#delete_all"
 
-  get "/api/products", to: "products#index"
+  # get "/products", to: "products#index"
 
 
 
