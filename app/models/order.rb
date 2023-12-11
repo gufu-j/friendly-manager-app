@@ -8,7 +8,7 @@ class Order < ApplicationRecord
 
     def orders_per_day_unic
         existing = Order.where(product_id: self.product_id).where(store_id: self.store_id).where(created_at: Date.current.all_day)
-        errors.add(:product_id, 'cannot be today') if !existing.empty?
+        errors.add(:product_id, 'you have already created this product today, go to your orders, check it out and edit it if you wish to order more') if !existing.empty?
     end
 
     # def order_repit
