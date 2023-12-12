@@ -31,7 +31,7 @@ function NavBar(){
                             <Link to="/admin_orders">
                             <button className="button2" >All Orders</button>
                             </Link>
-                                <Link to="/api/products">
+                                <Link to="/api_products">
                                 <button  className="button1">Products</button>
                                 </Link>
                                     <Link to="/total_products">
