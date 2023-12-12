@@ -3,8 +3,8 @@ import React from "react";
 
 function OrdersPerDay({quantity, productName, or, store_name}){
 
-    console.log(quantity)
-    console.log(productName)
+    // console.log(quantity)
+    // console.log(productName)
 
     return(
             <ul>

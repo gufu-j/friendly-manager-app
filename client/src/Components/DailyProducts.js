@@ -28,7 +28,7 @@ function DailyProduct(){
         return createdAt.isBetween(startOfToday, endOfToday)
       })
 
-      console.log(filteredDailyOrders)
+    //   console.log(filteredDailyOrders)
 
       const mappedDailyOrders = filteredDailyOrders.map(or => 
         <div key={or.id}>
@@ -58,7 +58,7 @@ function DailyProduct(){
             obj2.push({ product_name: prop, quantity: holder[prop] });
             }
 
-            console.log(obj2)
+            // console.log(obj2)
 
 
             const mappedTotalDailyOrders = obj2.map(or => 

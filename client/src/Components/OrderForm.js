@@ -58,7 +58,7 @@ function OrderForm(){
                 setQuantity("")
                 setNote("")
                 setSelected(selected)
-                console.log(data)
+                // console.log(data)
                 alert (`${data.product_name} has been ordered ` );                
             }else{
                 const errorList = data.errors.map((e) => (

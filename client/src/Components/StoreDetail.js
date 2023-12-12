@@ -11,7 +11,7 @@ function StoreDetail(){
 
     const singleStore = stores.find((el) => el.id === parseInt(`${id}`))
 
-    console.log(singleStore)
+    // console.log(singleStore)
     return(
         <div>
             <h1 className="center_text">Orders from Store {id}</h1>

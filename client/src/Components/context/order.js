@@ -55,7 +55,7 @@ function OrderProvider({children}){
 
 
     const onDeleteOrder = (deletedOrder) => {
-        console.log(deletedOrder)
+        // console.log(deletedOrder)
 
         // this code bellow works to update data when deleting an order from stores array of objects.
         const storeOrderDeleted = stores.find(s => s.id === deletedOrder.store_number).orders
@@ -73,7 +73,7 @@ function OrderProvider({children}){
         setStores(updatedStores)
 
         // this code bellow works such we can delete orders from the orders array of objects.
-        console.log(storeOrderDeleted)
+        // console.log(storeOrderDeleted)
         const updatedItem = orders.filter((item) => item.id !== deletedOrder.id);
         setOrders(updatedItem)
     }

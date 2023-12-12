@@ -31,7 +31,7 @@ function OrdersAdmin(){
     const orderslist = filtered_orders.map((or) =>{
 
     function handleDeleteClick(){
-        console.log(or.id)
+        // console.log(or.id)
         fetch(`/delete_admin_orders/${or.id}` , {
             method: "DELETE",
         })
