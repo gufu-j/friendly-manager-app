@@ -7,6 +7,7 @@ import "./OrderForm.css";
 import { ProductContext } from "./context/products";
 import {OrderContext} from "./context/order";
 import {StoreContext} from "./context/store";
+import LowManagerOrders from "./LowManagerOrders";
 
 
 
@@ -131,6 +132,7 @@ function OrderForm(){
 
             {errors}
         </div>
+        <LowManagerOrders />
     </div>
     )
 }

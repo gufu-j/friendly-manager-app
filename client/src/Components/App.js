@@ -19,6 +19,7 @@ import StoreDetail from './StoreDetail';
 import OrdersAdmin from './OrdersAdmin';
 import ProductsAdmin from './ProductAdmin';
 import DailyProduct from './DailyProducts';
+import {Helmet} from "react-helmet";
 
 
 function App() {
@@ -29,6 +30,13 @@ function App() {
     
     <div>
     <div>
+    <Helmet>
+              <meta charSet="utf-8" />
+              <title>Home Freeport</title>
+              <link rel="canonical" href="http://mysite.com/example" />
+              <meta name="description" content="testing icon and titles" />
+
+    </Helmet>
       <UserProvider>
         <StoreProvider>
           <OrderProvider>

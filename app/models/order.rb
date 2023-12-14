@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 
     validates :quantity, presence: true
     # validates :note, presence: true
-    validate :orders_per_day_unic
+    validate :orders_per_day_unic, on: :create
 
     def orders_per_day_unic
         existing = Order.where(product_id: self.product_id).where(store_id: self.store_id).where(created_at: Date.current.all_day)

@@ -91,7 +91,7 @@ function UpdateAdminOrder({order}){
                       onChange={(e)=> setNote(e.target.value)} 
                       placeholder="note" 
                       />
-                      <button type="submit"  className="close-modal-one" > Update Review </button>
+                      <button type="submit"  className="close-modal-one" > Update Order </button>
                       {errors}
                      </form> 
                    </div>

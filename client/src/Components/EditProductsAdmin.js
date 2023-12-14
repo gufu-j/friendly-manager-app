@@ -5,10 +5,8 @@ import { useState } from "react";
 function EditProductAdmin({product, handleUpdate}){
 
     const [productName, setProductName]= useState(product.name)
-
     const [errors, setErrors] = useState([])
-
-
+    
     function handleSubmit(e){
         e.preventDefault();
         fetch(`/products/${product.id}`,{
@@ -60,7 +58,7 @@ function EditProductAdmin({product, handleUpdate}){
             <div onClick={toggleModal} className="overlay"></div>
              <div className="modal-content">
                <div >
-                 <h2>Edit order</h2>
+                 <h2>Edit Product</h2>
                   <form onSubmit={handleSubmit} >
                     <input
                     type="text"
@@ -69,7 +67,7 @@ function EditProductAdmin({product, handleUpdate}){
                     onChange={(e)=> setProductName(e.target.value)} 
                     placeholder="product"     
                     />
-                    <button type="submit"  className="close-modal-one" > Update Review </button>
+                    <button type="submit"  className="close-modal-one" > Update Product </button>
                     {errors}
                    </form> 
                  </div>
