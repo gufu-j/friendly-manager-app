@@ -132,7 +132,7 @@ function OrderForm(){
 
             {errors}
         </div>
-        <LowManagerOrders />
+        <LowManagerOrders store = {store}/>
     </div>
     )
 }

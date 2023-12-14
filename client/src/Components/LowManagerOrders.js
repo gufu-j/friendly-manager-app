@@ -1,37 +1,18 @@
 import React from "react";
-import { useContext } from "react";
-import { OrderContext } from "./context/order";
+// import { useContext } from "react";
+// import { OrderContext } from "./context/order";
+// import { UserContext } from "./context/user";
 
 
-function LowManagerOrders(){
+function LowManagerOrders({store}){
 
-    const {orders} = useContext(OrderContext)
-
-    const moment = require("moment")
-
-    const lowManagerFilteredOrders = orders.sort(function (a, b) {
-        if (a.name < b.name) {
-         return -1;
-         }
-        if (a.name > b.name) {
-         return 1;
-         }
-         return 0;
-         }).filter(item => {
-        const createdAt = moment(item.created_at)
-        const startOfToday = moment().startOf('day')
-        const endOfToday = moment().endOf('day')
-        return createdAt.isBetween(startOfToday, endOfToday)
-      })
-
-
-      console.log(lowManagerFilteredOrders)
-
-
-
+    console.log(store)
     return(
         <div>
-            {lowManagerFilteredOrders.map(el => <li key={el.id}>{el.quantity} {el.product_name}</li>)}
+            
+            {store.length === 0 || store.organized_orders.length === 0? null : 
+            store.organized_orders.filter( el => new Date(el.created_at).toDateString() === new Date().toDateString()).map(el => <li key={el.id}>{el.quantity} {el.product_name}</li>) }
+
         </div>
     )
 }
