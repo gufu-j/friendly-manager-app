@@ -41,7 +41,7 @@ function App() {
           <OrderProvider>
             <ProductProvider>
                 <NavBar/>
-                  <Routes>
+                  <Routes basename="/friendly-manager-app">
                     <Route exact path="/login" element={ <Login /> } />
                     {/* <Route exact path="/signup" element={ <SignUp admin= {admin} setAdmin={setAdmin} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} location = {location} setLocation = {setLocation}/>}/> */}
                     <Route exact path="/business_orders" element={<Order />}/>
