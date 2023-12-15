@@ -19,7 +19,7 @@ puts("loading data...")
 a = User.create!(username: "Diego", password: "123", password_confirmation: "123", admin: false, email: "guatemaladiegojose@gmail.com")
 b = User.create!(username: "Ale", password: "123", password_confirmation: "123", admin: false, email: "jose1998.funes@gmail.com")
 c = User.create!(username: "Irving", password: "123", password_confirmation: "123", admin: true, email: "djosegfunes1998@gmail.com")
-d = User.create!(username: "Jon", password: "123", password_confirmation: "123", admin: false, email: "santateresitasv@gmail.com")
+d = User.create!(username: "Ben", password: "123", password_confirmation: "123", admin: false, email: "benjamin.aschenbrenner@flatironschool.com")
 
 store_one = Store.create!(phone_number: "123-453-543", location: "Bay Shore, Wall Street 2, NY 11606", user_id: a.id)
 store_two = Store.create!(phone_number: "456-654-3424", location: "Westberry, fifth av 89, NY 11514", user_id: b.id)
