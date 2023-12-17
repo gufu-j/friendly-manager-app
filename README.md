@@ -14,7 +14,7 @@ This app was created to help small companies with their day-to-day "sales" and i
 Each order is recorded by the day it was day created and the time and quantity of product needed. This software can interact with the user simply. There is no reason to write orders by hand from all stores, get the total of different products, and send that list to the manufacturing team. Friendly manager app believes in " your time is important, we want to help you ". the TOP manager has the following view as the picture attached below :
 <img width="956" alt="image" src="https://github.com/gufu-j/friendly-manager-app/assets/112182396/2181bd32-3113-42db-8842-9aaa273d4d5f">
 
-To install and deeply :
+To install and deploy on Render :
 
 ## Description
 
