@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Friendly-Manager-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="956" alt="image" src="https://github.com/gufu-j/friendly-manager-app/assets/112182396/36da374d-b7b4-4ab4-9cc0-72be11e02ad3">
 
-## Available Scripts
 
-In the project directory, you can run:
+This is an app created using Ruby and Javascript. 
 
-### `npm start`
+This app was created to help small companies with their day-to-day "sales" and inventory. Friendly Manager App lets managers from different store locations order more products they need for the next day. These orders are received by a TOP manager at the manufacturing location whose duty is to prepare all orders and deliver them by the next day to each store location. TOP manager can see all orders from all orders very well organized, he/she can delete and update all orders, delete them all after printing a list of orders for the next day, add a new product, and notify all managers by email. Managers at each store can only order and see their record of orders, they are also only able to delete or update those orders made the same day. The manager at each store has the view of the following picture below:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img width="506" alt="image" src="https://github.com/gufu-j/friendly-manager-app/assets/112182396/909d253f-b9f8-4691-aea7-878a825f32a5">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Each order is recorded by the day it was day created and the time and quantity of product needed. This software can interact with the user simply. There is no reason to write orders by hand from all stores, get the total of different products, and send that list to the manufacturing team. Friendly manager app believes in " your time is important, we want to help you ". the TOP manager has the following view as the picture attached below :
+<img width="956" alt="image" src="https://github.com/gufu-j/friendly-manager-app/assets/112182396/2181bd32-3113-42db-8842-9aaa273d4d5f">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Installation :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fork and Clone this repository on your device.
+Start the backend of the application, and run the rails server.
+Start the front end of the application, and run npm start.
