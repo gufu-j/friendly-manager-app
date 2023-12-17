@@ -1,5 +1,8 @@
 # Friendly-Manager-App
 
+<img width="956" alt="image" src="https://github.com/gufu-j/friendly-manager-app/assets/112182396/36da374d-b7b4-4ab4-9cc0-72be11e02ad3">
+
+
 This is an app created using Ruby and Javascript. 
 
 This app was created to help small companies with their day-to-day "sales" and inventory. Friendly Manager App lets managers from different store locations order more products they need for the next day. These orders are received by a TOP manager at the manufacturing location whose duty is to prepare all orders and deliver them by the next day to each store location. TOP manager can see all orders from all orders very well organized, he/she can delete and update all orders, delete them all after printing a list of orders for the next day, add a new product, and notify all managers by email. Managers at each store can only order and see their record of orders, they are also only able to delete or update those orders made the same day.
